@@ -22,6 +22,11 @@ function Header() {
               <p className="nav-bar-item">register</p>
             </Link>
           </div>
+          <div >
+            <Link className="nav-bar-link" to="/configurator" >
+              <p className="nav-bar-item">configurator</p>
+            </Link>
+          </div>
         </nav>
     </header>
   )
