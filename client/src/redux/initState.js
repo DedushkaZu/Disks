@@ -1,10 +1,8 @@
 const initState = {
-  // tasks: [],
-  loader: true,
+  loader: false,
   error: {
     status: false,
     errorMessage: '',
   }
-
 }
 export default initState
