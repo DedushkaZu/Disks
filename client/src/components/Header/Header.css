@@ -1,9 +1,10 @@
 .App-header {
   max-height: 10vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 2vw ;
   align-items: center;
+  flex-wrap:wrap
 }
 
 .App-logo {
@@ -16,11 +17,13 @@
 .nav-bar{
   width: 10vw;
   display: flex;  
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .nav-bar-item{
   color: #fff;
   text-decoration: none;
+  font-size: x-large ;
+  margin: 0 1vh;
 }
 .nav-bar-link{
   text-decoration: none;

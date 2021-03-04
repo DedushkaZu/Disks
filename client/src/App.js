@@ -1,42 +1,49 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Error from './components/Error/Error';
-// import Login from './components/Login/Login';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 import { 
   BrowserRouter as Router,
-  // Switch,
-  // Route,
+  Switch,
+  Route,
   // Redirect
 } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import Configurator from './components/Configurator/Configurator';
 
 
 function App() {
   const error = useSelector(state => state.error)
+  console.log(error);
 
   return (
     <Router >
-      <div className="App">
-        <Header />
-        {error.status ? (
+      {error.status ? 
+        (
+          <Error />
+        ) :
+        (<div className="App">
+          <Header />
           <div className="App-main">
-            <Error />
-          </div>) :
-          (<div className="App-main">
-            {/* <Switch>
+            <Switch>
 
               <Route path="/login">  
                 <Login />
               </Route>
 
-              <Route path="/info">
-                <Info />
+              <Route path="/register">  
+                <Register />
               </Route>
 
-            </Switch> */}
-          </div>)
-        }
-      </div>
+              <Route path="/configurator">
+                <Configurator />
+              </Route>
+
+            </Switch>
+          </div>
+        </div>  )
+      }
     </Router>
   );
 }
