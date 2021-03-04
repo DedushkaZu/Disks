@@ -1,7 +1,6 @@
-import React from 'react'
-import './Header.css'
+import './Header.css';
 import logo from '../../logo.svg';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -18,12 +17,11 @@ function Header() {
               <p className="nav-bar-item">login</p>
             </Link>
           </div>
-
-          {/* <div >
-            <Link className="nav-bar-link" to="/info" >
-              <p className="nav-bar-item">info</p>
+          <div >
+            <Link className="nav-bar-link" to="/register" >
+              <p className="nav-bar-item">register</p>
             </Link>
-          </div> */}
+          </div>
         </nav>
     </header>
   )
