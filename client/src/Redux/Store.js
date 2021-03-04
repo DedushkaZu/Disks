@@ -1,8 +1,14 @@
-import { applyMiddleware, createStore } from 'redux';
-import initState from './InitState';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import initState from './initState'
+import rootReducer from './reducers/rootReducer';
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore } from 'redux';
+// import thunk from 'redux-thunk';
+// import createSagaMiddleware from 'redux-saga';
 
-// const store = createStore(rootReducer, initState(), composeWithDevTools(applyMiddleware(thunk)));
 
-// export default store;
+// const sagaMiddleware = createSagaMiddleware()
+const store = createStore(rootReducer, initState, composeWithDevTools());
+// const store = createStore(rootReducer, initState, composeWithDevTools(applyMiddleware(thunk, sagaMiddleware)));
+
+
+export default store;
