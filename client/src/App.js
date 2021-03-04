@@ -10,6 +10,7 @@ import {
   // Redirect
 } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import Configurator from './components/Configurator/Configurator';
 
 
 function App() {
@@ -35,9 +36,9 @@ function App() {
                 <Register />
               </Route>
 
-              {/* <Route path="/info">
-                <Info />
-              </Route> */}
+              <Route path="/configurator">
+                <Configurator />
+              </Route>
 
             </Switch>
           </div>
