@@ -4,6 +4,5 @@ const initState = {
     status: false,
     errorMessage: '',
   }
-  
 }
 export default initState
