@@ -4,6 +4,7 @@ import Error from './components/Error/Error';
 import Loader from './components/Loader/Loader';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+
 import {
   BrowserRouter as Router,
   Switch,
