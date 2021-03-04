@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const { connect } = require('./Db/Models');
+const carRouter = require('./Routes/CarRouter');
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use('/car', carRouter);
 
 app.listen(PORT, () => {
   console.log('server has been started');
