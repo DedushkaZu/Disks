@@ -1,5 +1,4 @@
 const initState = {
-  tasks: [],
   loader: false,
   error: {
     status: false,
