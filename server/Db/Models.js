@@ -14,7 +14,15 @@ const carSchema = new Schema({
   pos3: Object,
 });
 
+const userSchema = new Schema({
+  username: String,
+  password: String,
+  email: String,
+  basket: Array,
+});
+
 module.exports = {
   connect,
   Car: model('cars', carSchema),
+  User: model('users', userSchema),
 };
