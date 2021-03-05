@@ -17,7 +17,7 @@ function Register() {
   const handlerRegistration = (e, username, email, password) => {
     e.preventDefault();
     dispatch(registrationUser(username, email, password));
-    window.localStorage.setItem('auth', auth);
+    // window.localStorage.setItem('auth', auth);
   };
   if (auth) {
     history.push('/');

@@ -22,7 +22,7 @@ function Login() {
     // setPassword('');
   };
   if (auth) {
-    window.localStorage.setItem('auth', auth);
+    // window.localStorage.setItem('auth', auth);
     history.push('/');
   }
 

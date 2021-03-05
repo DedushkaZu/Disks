@@ -42,6 +42,18 @@ const loginUser = (email, password) => async (dispatch, getState) => {
   dispatch(removeLoader());
 };
 
+const logoutUser = () => async (dispatch, getState) => {
+  dispatch(addLoader());
+  const response = await fetch('http://localhost:3001/user/logout', {
+    credentials: 'include',
+  });
+  console.log(response.status)
+  if (response.status === 200) {
+    dispatch(checkAuth(false));
+    dispatch(removeLoader());
+  }
+};
+
 const checkAuth = (flag) => {
   return {
     type: CHECK_AUTH,
@@ -51,5 +63,6 @@ const checkAuth = (flag) => {
 export {
   registrationUser,
   loginUser,
+  logoutUser,
   checkAuth,
 } 

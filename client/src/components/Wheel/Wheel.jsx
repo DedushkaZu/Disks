@@ -21,7 +21,7 @@ function Wheel() {
       </div>
 
       <div className="text">
-        <span>Loading</span><span class="dots">...</span>
+        <span>Loading</span><span className="dots">...</span>
       </div>
     </div>
   )
