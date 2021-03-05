@@ -20,6 +20,7 @@ import WelcomePage from './components/WelcomePage/WelcomePage';
 
 function App() {
   const error = useSelector(state => state.error)
+  const loader = useSelector(state => state.loader)
   console.log(error);
   const dispatch = useDispatch();
 
@@ -37,9 +38,13 @@ function App() {
         (
           <Error />
         ) :
+        loader ? 
         (<div className="App">
           <Header />
           <Loader />
+        </div>) :
+        (<div className="App">
+          <Header />
           <div className="App-main">
             <Switch>
               <Route exact path="/">
