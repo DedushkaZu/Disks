@@ -36,7 +36,7 @@ function App() {
               <Route path="/register">
                 <Register />
               </Route>
-              <Route path="/configurator">
+              <Route exact path="/configurator">
                 <Configurator />
               </Route>
             </Switch>
