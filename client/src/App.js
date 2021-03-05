@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Configurator from './components/Configurator/Configurator';
 import { useEffect } from 'react';
 import { checkAuth } from './redux/actionCreators/user';
+import WelcomePage from './components/WelcomePage/WelcomePage';
 
 
 function App() {
@@ -41,10 +42,13 @@ function App() {
           <Loader />
           <div className="App-main">
             <Switch>
-              <Route path="/login">
+              <Route exact path="/">
+                <WelcomePage />
+              </Route>
+              <Route exact path="/login">
                 <Login />
               </Route>
-              <Route path="/register">
+              <Route exact path="/register">
                 <Register />
               </Route>
               <Route exact path="/configurator">
