@@ -34,9 +34,9 @@ function Header() {
               </Link>
             </div>
             <div >
-              {/* <Link className="nav-bar-link" to="/" > */}
+              <Link className="nav-bar-link" to="/" >
               <p onClick={handlerLogout} className="nav-bar-item">logout</p>
-              {/* </Link> */}
+              </Link>
             </div>
           </> :
           <>

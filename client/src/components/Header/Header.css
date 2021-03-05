@@ -10,7 +10,7 @@
 .App-logo {
   height: 9vh;
   pointer-events: none;
-  max-width: 25vw;
+  width: 25vw;
 }
 
 .project-wrapper{
@@ -45,8 +45,6 @@
     animation: App-logo-spin infinite 2s linear;
   }
 }
-
-
 
 @keyframes App-logo-spin {
   from {
