@@ -8,7 +8,9 @@ function Loader() {
   const loading = useSelector(state => state.loader)
 
   return (
-    loading && <Wheel />
+    <div className="App-main">
+      {loading && <Wheel />}
+    </div>
   );
 }
 

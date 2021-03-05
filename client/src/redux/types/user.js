@@ -1,0 +1,3 @@
+export const REGISTRATION_USER = 'REGISTRATION_USER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const CHECK_AUTH = 'CHECK_AUTH';

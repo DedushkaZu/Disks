@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body, html{
@@ -183,4 +184,5 @@ by the way it is so weird when you look at your code a couple of years after you
 .alert a {
 	color: #232323;
 	font-weight: bold;
+
 }
