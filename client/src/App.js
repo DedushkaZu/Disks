@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import Configurator from './components/Configurator/Configurator';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { checkAuth } from './redux/actionCreators/user';
 import WelcomePage from './components/WelcomePage/WelcomePage';
 
@@ -21,7 +21,7 @@ import WelcomePage from './components/WelcomePage/WelcomePage';
 function App() {
   const error = useSelector(state => state.error)
   const loader = useSelector(state => state.loader)
-  console.log(error);
+  // console.log(error);
   const dispatch = useDispatch();
 
   useEffect(() => {
