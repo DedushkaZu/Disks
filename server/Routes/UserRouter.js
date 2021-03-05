@@ -6,7 +6,6 @@ const saltRounds = 10;
 
 router.post('/registration', async (req, res) => {
   const { username, email, password } = req.body;
-  console.log('tut', username, email, password);
   const userEmail = await User.findOne({ email });
   if (userEmail) {
     return res.sendStatus(202);
@@ -29,7 +28,6 @@ router.post('/registration', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
   let user;
   try {
     user = await User.findOne({ email });
@@ -39,7 +37,6 @@ router.post('/login', async (req, res) => {
   }
   if (user && (await bcrypt.compare(password, user.password))) {
     req.session.userID = user.id;
-    res.cookie('TEST', req.session.userID);
     return res.status(200).json(user.id);
   }
   return res.sendStatus(202);
@@ -47,7 +44,16 @@ router.post('/login', async (req, res) => {
 
 router.get('/check', (req, res) => {
   if (req.session.userID) {
-    res.json({ cheker: 'ok' });
+    try {
+      const user = await User.findById(req.session.userID);
+      if (user) {
+        res.json({ cheker: 'ok' });
+      } else {
+        res.json({ cheker: 'neok' });
+      }
+    } catch (error) {
+      console.log(error)
+    }
   } else {
     res.json({ cheker: 'neok' });
   }
@@ -55,7 +61,7 @@ router.get('/check', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.destroy();
-  res.clearCookie();
+  res.clearCookie('sid');
   return res.sendStatus(200);
 });
 

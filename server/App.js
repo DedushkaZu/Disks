@@ -37,6 +37,8 @@ app.use(session({
   secret: 'asdsda',
   cookie: { expires: 600000 },
   name: 'sid',
+  resave: true,
+  saveUninitialized: false,
 }));
 
 app.use('/car', carRouter);
