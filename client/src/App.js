@@ -1,9 +1,11 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Error from './components/Error/Error';
+import Loader from './components/Loader/Loader';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import { 
+
+import {
   BrowserRouter as Router,
   Switch,
   Route,
@@ -19,30 +21,27 @@ function App() {
 
   return (
     <Router >
-      {error.status ? 
+      {error.status ?
         (
           <Error />
         ) :
         (<div className="App">
           <Header />
+          <Loader />
           <div className="App-main">
             <Switch>
-
-              <Route path="/login">  
+              <Route path="/login">
                 <Login />
               </Route>
-
-              <Route path="/register">  
+              <Route path="/register">
                 <Register />
               </Route>
-
-              <Route path="/configurator">
+              <Route exact path="/configurator">
                 <Configurator />
               </Route>
-
             </Switch>
           </div>
-        </div>  )
+        </div>)
       }
     </Router>
   );
