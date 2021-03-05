@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 function Header() {
   return (
     <header className="App-header">
-        <Link to="/" >
-        <img src={logo} className="App-logo" alt="logo" />
-        </Link>
+        <div className="logo-wrapper">
+          <Link to="/" >
+          <img src={logo} className="App-logo" alt="logo" />
+          </Link>
+        </div>
         
-        <span>НОРМАЛЬНЫЕ ДИСКИ</span>
+        <div className="project-wrapper">
+          <span>НОРМАЛЬНЫЕ ДИСКИ</span>
+        </div>
 
         <nav className="nav-bar">
           <div >
