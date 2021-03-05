@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import './Configurator.css'
 
 function Configurator() {
   useEffect(() => {
@@ -6,9 +7,11 @@ function Configurator() {
   }, [])
 
   return (
-    <div className="cloudimage-360" data-folder="./images/m-d1/" data-filename="m-d1-{index}.jpg" data-amount="12"
-    >
-    </div>
+    <>
+      <div className="cloudimage-360" data-folder="./images/m-d1/" data-filename="m-d1-{index}.jpg" data-amount="12"
+      >
+      </div>
+    </>
   )
 }
 
