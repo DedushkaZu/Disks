@@ -6,9 +6,9 @@ function Header() {
   return (
     <header className="App-header">
         <div className="logo-wrapper">
-          <Link to="/" >
-          <img src={logo} className="App-logo" alt="logo" />
-          </Link>
+            <Link to="/" >
+            <img src={logo} className="App-logo" alt="logo" />
+            </Link>
         </div>
         
         <div className="project-wrapper">
