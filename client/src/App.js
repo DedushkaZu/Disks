@@ -17,6 +17,7 @@ import Configurator from './components/Configurator/Configurator';
 
 function App() {
   const error = useSelector(state => state.error)
+  const loader = useSelector(state => state.loader)
   console.log(error);
 
   return (
@@ -25,9 +26,13 @@ function App() {
         (
           <Error />
         ) :
+        loader ? 
         (<div className="App">
           <Header />
           <Loader />
+        </div>) :
+        (<div className="App">
+          <Header />
           <div className="App-main">
             <Switch>
               <Route path="/login">
