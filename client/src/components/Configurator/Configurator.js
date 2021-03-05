@@ -1,57 +1,41 @@
-import { useEffect, useState } from 'react'
-import './Configurator.css'
+import './Configurator.css';
+import  React360  from '../React360/React360'
+import { useEffect, useState } from 'react';
+import { useHistory} from 'react-router-dom';
 
 function Configurator() {
-  const [car, setCar] = useState('./images/m-d1/')
-  const [flag, setFlag] = useState(false)
-
-  useEffect(() => {
-    console.log(car);
-    // window.CI360.destroy();
-    window.CI360.init();
-    console.log(car);
-    return () => {
-      window.CI360.destroy();
-    }
-  }, [flag])
-
+  
+  const [car, setCar] = useState('images/m-d1')
+  // const history = useHistory();
   // useEffect(() => {
+  //   window.CI360.destroy();
   //   window.CI360.init();
-  // }, [])
+  //   console.log(car);
+  //   return () => {
+  //     window.CI360.destroy();
+  //   }
+  // }, [car])
 
+  // // useEffect(() => {
+  // //   window.CI360.init();
+  // // }, [])
 
   function handlerDisks1() {
-    setCar('./images/m-d1/')
+    setCar('images/m-d1')
   }
 
   function handlerDisks2() {
-    setCar('./images/m-d2/')
-  }
-
-  function test() {
-    console.log(flag);
-    if (flag)
-      setFlag(false)
-    else
-      setFlag(true)
+    setCar('images/m-d2')
   }
 
   return (
     <div>
-      {flag ?
-        <div className="cloudimage-360" data-folder='./images/m-d2/' data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true'
-        >
-        </div>
-        // <div>1</div>
-        :
-        <div className="cloudimage-360" data-folder='./images/m-d1/' data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true'
-        >
-        </div>
-        // <div>2</div> 
-      }
+      <React360  dir={car} numImages={12}/>
+      <div className="cloudimage-360" data-folder={car} data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true'/>
+      <div>{car}</div>
 
-
-      <button onClick={test}>fdsfs</button>
+      <button onClick={handlerDisks1}>disk 1</button>
+      <button onClick={handlerDisks2}>disk 2</button>
       <div className="container">
 
 
