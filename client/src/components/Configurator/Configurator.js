@@ -1,29 +1,10 @@
 import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
-<<<<<<< HEAD
-import { useHistory } from 'react-router-dom';
-
-function Configurator() {
-
-  const [car, setCar] = useState('images/m-d1')
-  // const history = useHistory();
-  // useEffect(() => {
-  //   window.CI360.destroy();
-  //   window.CI360.init();
-  //   console.log(car);
-  //   return () => {
-  //     window.CI360.destroy();
-  //   }
-  // }, [car])
-
-  // // useEffect(() => {
-  // //   window.CI360.init();
-  // // }, [])
-=======
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from 'react-router-dom';
 // import { getAllCars } from '../../redux/actionCreators/cars';
+import { saveConfig } from '../../redux/actionCreators/user';
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -35,8 +16,7 @@ function Configurator() {
   const [color, setColor] = useState('g')
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
-
->>>>>>> 84c4121b452b2f497f4df3a12396d4eecfb30e29
+  const dispatch = useDispatch();
 
   function handlerDisks1() {
     setdisk('d1')
@@ -55,21 +35,9 @@ function Configurator() {
   //   setCar('images/T-v-g-d2-o')
   // }
 
-<<<<<<< HEAD
-  return (
-    <div>
-      <React360 dir={car} numImages={12} />
-      <div className="cloudimage-360" data-folder={car} data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true' />
-      <div>{car}</div>
-
-      <button onClick={handlerDisks1}>disk 1</button>
-      <button onClick={handlerDisks2}>disk 2</button>
-      <div className="container">
-=======
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
   }
->>>>>>> 84c4121b452b2f497f4df3a12396d4eecfb30e29
 
   const handlerChoose = (e) => {
     if (brand && model) {
@@ -93,6 +61,13 @@ function Configurator() {
     setColor(value);
   }
 
+  const handlerSaveConfig = () => {
+    dispatch(saveConfig({
+      path: `cars/${brand}/${model}/${disk}/${color}/`,
+      numImages: photoCount,
+    }));
+  };
+
   return (
     chooseCar ? (
       <div className="configurator-wrapper">
@@ -103,6 +78,7 @@ function Configurator() {
         }
 
         <div className="options-container">
+          <div><button onClick={handlerSaveConfig}>Save</button></div>
           <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
           <div className="colors">
             <div className="big-block">

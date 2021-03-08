@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Configurator from './components/Configurator/Configurator';
 import { useEffect, useState } from 'react';
 import { checkAuth } from './redux/actionCreators/user';
+import UserZone from './components/UserZone/UserZone';
 
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
                 </Route>
                 <Route exact path='/'>
                   <WelcomePage />
+                </Route>
+                <Route exact path='/userzone'>
+                  <UserZone />
                 </Route>
               </Switch>
             </div>
