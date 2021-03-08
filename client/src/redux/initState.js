@@ -9,5 +9,14 @@ const initState = {
     errorMessage: '',
   },
   auth: false,
+  cars:
+  {
+    m: {
+      s: {
+        disks: 2,
+        color: ['black', 'white']
+      }
+    }
+  }
 }
 export default initState

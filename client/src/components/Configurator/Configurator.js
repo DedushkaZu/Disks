@@ -1,12 +1,17 @@
 import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import { getAllCars } from '../../redux/actionCreators/cars';
 
 function Configurator() {
+  const cars = useSelector(state => state.cars);
   const [car, setCar] = useState('images/v-g-d1-g')
+  let models = {};
+  let currentModel = {};
   const [chooseCar, setChooseCar] = useState(false);
-  
+
 
   function handlerDisks1() {
     setCar('images/v-g-d1-g')
@@ -28,6 +33,17 @@ function Configurator() {
   const handlerChoose = () => {
     setChooseCar(!chooseCar)
   }
+
+  function handerChooseCar(e) {
+    models = cars[e.target.value]
+    console.log(models);
+  }
+
+  function handlerChooseModel(e) {
+    currentModel = models[e.target.value]
+    console.log(currentModel);
+  }
+
   return (
         chooseCar ? (
           <div className="configurator-wrapper">
