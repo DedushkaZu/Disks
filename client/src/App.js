@@ -4,6 +4,7 @@ import Error from './components/Error/Error';
 import Loader from './components/Loader/Loader';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import WelcomePage from './components/WelcomePage/WelcomePage';
 
 import {
   BrowserRouter as Router,
@@ -38,27 +39,30 @@ function App() {
         (
           <Error />
         ) :
-        loader ? 
-        (<div className="App">
-          <Header />
-          <Loader />
-        </div>) :
-        (<div className="App">
-          <Header />
-          <div className="App-main">
-            <Switch>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route exact path="/configurator">
-                <Configurator />
-              </Route>
-            </Switch>
-          </div>
-        </div>)
+        loader ?
+          (<div className="App">
+            <Header />
+            <Loader />
+          </div>) :
+          (<div className="App">
+            <Header />
+            <div className="App-main">
+              <Switch>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route exact path="/configurator">
+                  <Configurator />
+                </Route>
+                <Route exact path='/'>
+                  <WelcomePage />
+                </Route>
+              </Switch>
+            </div>
+          </div>)
       }
     </Router>
   );
