@@ -52,7 +52,7 @@ router.get('/check', async (req, res) => {
         res.json({ cheker: 'neok' });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   } else {
     res.json({ cheker: 'neok' });
