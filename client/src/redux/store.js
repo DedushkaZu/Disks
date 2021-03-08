@@ -9,9 +9,5 @@ import thunk from 'redux-thunk';
 // const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer, initState, composeWithDevTools(applyMiddleware(thunk)));
 
-// store.subscribe(() => {
-//   const auth = store.getState().auth;
-//   window.localStorage.setItem('auth', auth)
-// });
 
 export default store;

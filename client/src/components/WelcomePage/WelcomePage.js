@@ -1,15 +1,12 @@
+import Carousel from '../Carousel/Carousel';
+
 const WelcomePage = () => {
   return (
     <div>
-      {/* <div>
-        <h4>Name</h4>
-      </div>
+      <Carousel />
       <div>
-        <h6>Configurators</h6>
-        <div>
-          photos
-        </div>
-      </div> */}
+        asdds
+      </div>
     </div>
   );
 }
