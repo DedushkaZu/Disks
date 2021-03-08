@@ -16,8 +16,8 @@ const initState = {
     },
     v: {
       g: {
-        disks: ['d1','d2'],
-        color: ['g', 'o'],
+        disks: ['d1', 'd2'],
+        color: ['g', 'b'],
         photoCount: 24
       }
     }

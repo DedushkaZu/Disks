@@ -14,9 +14,8 @@ function Configurator() {
   const [disk, setdisk] = useState('d1')
   const [color, setColor] = useState('g')
   const photoCount = cars[brand][model].photoCount
-  console.log(cars.v.g.photoCount)
-  console.log(photoCount)
-  
+  const colors = cars[brand][model].color;
+
 
   function handlerDisks1() {
     setdisk('d1')
@@ -40,7 +39,7 @@ function Configurator() {
   }
 
   const handlerChoose = (e) => {
-    if ( brand && model) {
+    if (brand && model) {
       setChooseCar(!chooseCar)
     }
   }
@@ -57,44 +56,59 @@ function Configurator() {
     setModel(`cars/${choosenModel}/g/d1/g`)
   }
 
-  return (
-        chooseCar ? (
-          <div className="configurator-wrapper">
-            {
-              tapacStyle ?
-            <React360  dir={`cars/T/v/g/d1/o/`} numImages={23}/> :
-            <React360  dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount}/>
-            }
+  function handlerColor(value) {
+    setColor(value);
+  }
 
-          <div className="options-container">
-            <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
-            <div className="colors">
-              <div className="big-block">
-                <h1>Color:</h1>
-                <div className="color-red sm-blocks-c"></div>
-                <div className="color-white sm-blocks-c"></div>
-                <div className="color-black sm-blocks-c"></div>
-                <div className="color-green sm-blocks-c"></div>
-                <div className="color-orange sm-blocks-c"></div>
-              </div>
+  return (
+    chooseCar ? (
+      <div className="configurator-wrapper">
+        {
+          tapacStyle ?
+            <React360 dir={`cars/T/v/g/d1/o/`} numImages={23} /> :
+            <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
+        }
+
+        <div className="options-container">
+          <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
+          <div className="colors">
+            <div className="big-block">
+              <h1>Color:</h1>
+              {
+                colors?.length ? (colors.map((el) => (
+                  <div>
+                    {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
+                    {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
+                    {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
+                    {el === 'r' ? <div onClick={() => handlerColor(el)} className="color-red sm-blocks-c"></div> : <div></div>}
+                    {el === 'w' ? <div onClick={() => handlerColor(el)} className="color-white sm-blocks-c"></div> : <div></div>}
+                  </div>
+                ))) : <div></div>
+              }
+              {/* <div className="color-red sm-blocks-c"></div>
+              <div className="color-white sm-blocks-c"></div>
+              <div className="color-black sm-blocks-c"></div>
+              <div className="color-green sm-blocks-c"></div>
+              <div className="color-orange sm-blocks-c"></div> */}
             </div>
-            <div className="disks">
-              <div className="big-block">
-                <h1>Disks:</h1>
-                <div onClick={handlerDisks1} className="disk sm-blocks-d" >Disk1</div>
-                <div onClick={handlerDisks2} className="disk sm-blocks-d" >Disk2</div>
-                <div onClick={handlerDisks3} className="disk sm-blocks-d" >Disk3</div>
-                {/* <div onClick={handlerDisks4} className="disk sm-blocks-d" >Disk4</div>
+          </div>
+          <div className="disks">
+            <div className="big-block">
+              <h1>Disks:</h1>
+              <div onClick={handlerDisks1} className="disk sm-blocks-d" >Disk1</div>
+              <div onClick={handlerDisks2} className="disk sm-blocks-d" >Disk2</div>
+              <div onClick={handlerDisks3} className="disk sm-blocks-d" >Disk3</div>
+              {/* <div onClick={handlerDisks4} className="disk sm-blocks-d" >Disk4</div>
                 <div onClick={handlerDisks5} className="disk sm-blocks-d" >Disk1</div> */}
-              </div>
             </div>
           </div>
-          <div className="choose-car-button">
-            <button onClick={handlerChoose}>Choose anorther car</button>
-          </div>
-        </div> 
-        ) : 
-        (
+        </div>
+        <div className="choose-car-button">
+          <button onClick={handlerChoose}>Choose anorther car</button>
+        </div>
+      </div>
+    ) :
+      (
         <div>
           <select onChange={handerChooseCar} className="car-brand">
             <option value="default"></option>
@@ -106,7 +120,7 @@ function Configurator() {
           </select>
           <button onClick={handlerChoose}>Choose</button>
         </div>
-        )
+      )
   )
 }
 
