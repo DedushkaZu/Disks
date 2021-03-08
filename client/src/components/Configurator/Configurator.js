@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from 'react-router-dom';
 // import { getAllCars } from '../../redux/actionCreators/cars';
+import { saveConfig } from '../../redux/actionCreators/user';
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -15,7 +16,10 @@ function Configurator() {
   const [color, setColor] = useState('g')
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
+  const dispatch = useDispatch();
+
   const disks = cars[brand][model].disks;
+
 
 
   // function handlerDisks1() {
@@ -61,9 +65,18 @@ function Configurator() {
     setColor(value);
   }
 
+
+  const handlerSaveConfig = () => {
+    dispatch(saveConfig({
+      path: `cars/${brand}/${model}/${disk}/${color}/`,
+      numImages: photoCount,
+    }));
+  };
+
   function handlerDisk(value) {
     setDisk(`d${value}`);
   }
+
 
   return (
     chooseCar ? (
@@ -75,6 +88,7 @@ function Configurator() {
         }
 
         <div className="options-container">
+          <div><button onClick={handlerSaveConfig}>Save</button></div>
           <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
           <div className="colors">
             <div className="big-block">

@@ -21,6 +21,7 @@ const initState = {
         photoCount: 24
       }
     }
-  }
+  },
+  basket: [],
 }
 export default initState
