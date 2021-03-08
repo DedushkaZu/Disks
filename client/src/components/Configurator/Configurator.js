@@ -1,7 +1,7 @@
 import './Configurator.css';
-import  React360  from '../React360/React360'
+import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Configurator() {
   const [car, setCar] = useState('images/m-d1')
@@ -32,6 +32,7 @@ function Configurator() {
                 <label htmlFor="f-option">Диски 1</label>
                 <div className="check"></div>
               </li>
+
 
               <li>
                 <input onChange={handlerDisks2} type="radio" id="s-option" name="selector" />
