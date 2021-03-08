@@ -1,7 +1,7 @@
 import './Configurator.css';
-import  React360  from '../React360/React360'
+import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Configurator() {
   const [car, setCar] = useState('images/m-d1')

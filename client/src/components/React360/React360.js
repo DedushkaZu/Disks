@@ -10,7 +10,7 @@ class React360 extends Component {
 
   state = {
     dragging: false,
-    imageIndex: 1,
+    imageIndex: 0,
     dragStartIndex: 0
   };
 
@@ -39,11 +39,14 @@ class React360 extends Component {
 
   updateImageIndex = currentPosition => {
     let numImages = this.props.numImages;
+    console.log('--->', numImages);
     const pixelsPerImage = pixelsPerDegree * (360 / numImages);
     const { dragStart, imageIndex, dragStartIndex } = this.state;
+    console.log(this.state);
     // pixels moved
     let dx = (currentPosition - dragStart) / pixelsPerImage;
     let index = Math.floor(dx) % numImages;
+    console.log(index);
 
     if (index < 0) {
       index = numImages + index - 1;
@@ -73,8 +76,8 @@ class React360 extends Component {
         <img
           className="react-360-img"
           alt=""
-          src={(`../../${this.props.dir}/car-${imageIndex}.jpg`)}
-          // src={require(`../../images/m-d1/car-${imageIndex}.jpg`)}
+          src={(`/${this.props.dir}/car-${imageIndex}.jpg`)}
+        // src={require(`../../images/m-d1/car-${imageIndex}.jpg`)}
         />
       </div>
     );
