@@ -32,7 +32,6 @@ function Configurator() {
                 <label htmlFor="f-option">Диски 1</label>
                 <div className="check"></div>
               </li>
-
               <li>
                 <input onChange={handlerDisks2} type="radio" id="s-option" name="selector" />
                 <label htmlFor="s-option">Диски 2</label>
