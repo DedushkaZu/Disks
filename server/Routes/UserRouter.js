@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
   return res.sendStatus(202);
 });
 
-router.get('/check', (req, res) => {
+router.get('/check', async (req, res) => {
   if (req.session.userID) {
     try {
       const user = await User.findById(req.session.userID);
@@ -52,7 +52,7 @@ router.get('/check', (req, res) => {
         res.json({ cheker: 'neok' });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   } else {
     res.json({ cheker: 'neok' });
