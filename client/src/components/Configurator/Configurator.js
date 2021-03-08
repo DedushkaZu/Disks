@@ -11,22 +11,23 @@ function Configurator() {
   const [chooseCar, setChooseCar] = useState(true);
   const [brand, setBrand] = useState('v')
   const [model, setModel] = useState('g')
-  const [disk, setdisk] = useState('d1')
+  const [disk, setDisk] = useState('d1')
   const [color, setColor] = useState('g')
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
+  const disks = cars[brand][model].disks;
 
 
-  function handlerDisks1() {
-    setdisk('d1')
-  }
+  // function handlerDisks1() {
+  //   setdisk('d1')
+  // }
 
-  function handlerDisks2() {
-    setdisk('d2')
-  }
-  function handlerDisks3() {
-    setdisk('d3')
-  }
+  // function handlerDisks2() {
+  //   setdisk('d2')
+  // }
+  // function handlerDisks3() {
+  //   setdisk('d3')
+  // }
   // function handlerColor1() {
   //   setCar('images/T-v-g-d1-o')
   // }
@@ -58,6 +59,10 @@ function Configurator() {
 
   function handlerColor(value) {
     setColor(value);
+  }
+
+  function handlerDisk(value) {
+    setDisk(`d${value}`);
   }
 
   return (
@@ -95,9 +100,18 @@ function Configurator() {
           <div className="disks">
             <div className="big-block">
               <h1>Disks:</h1>
-              <div onClick={handlerDisks1} className="disk sm-blocks-d" >Disk1</div>
+              {
+                disks?.length ? (disks.map((el, index) => (
+                  <div>
+                    <div onClick={() => handlerDisk(index + 1)} className="disk sm-blocks-d"></div>
+                  </div>
+                ))) : <div></div>
+              }
+
+
+              {/* <div onClick={handlerDisks1} className="disk sm-blocks-d" >Disk1</div>
               <div onClick={handlerDisks2} className="disk sm-blocks-d" >Disk2</div>
-              <div onClick={handlerDisks3} className="disk sm-blocks-d" >Disk3</div>
+              <div onClick={handlerDisks3} className="disk sm-blocks-d" >Disk3</div> */}
               {/* <div onClick={handlerDisks4} className="disk sm-blocks-d" >Disk4</div>
                 <div onClick={handlerDisks5} className="disk sm-blocks-d" >Disk1</div> */}
             </div>
