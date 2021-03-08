@@ -20,17 +20,18 @@ import { checkAuth } from './redux/actionCreators/user';
 function App() {
   const error = useSelector(state => state.error)
   const loader = useSelector(state => state.loader)
-  // console.log(error);
   const dispatch = useDispatch();
 
+  
   useEffect(() => {
-
     fetch('http://localhost:3001/user/check', {
       credentials: 'include'
     }).then(response => response.json())
-      .then(result => result.cheker === 'ok' ? dispatch(checkAuth(true)) : dispatch(checkAuth(false)))
+    .then(result => result.cheker === 'ok' ? dispatch(checkAuth(true)) : dispatch(checkAuth(false)))
+    return () => {
+    }
   }, [])
-
+  
   return (
     <Router >
       {error.status ?

@@ -3,7 +3,7 @@ import './Login.css'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { checkAuth, loginUser } from '../../redux/actionCreators/user';
+import { loginUser } from '../../redux/actionCreators/user';
 import { useSelector } from 'react-redux';
 
 function Login() {

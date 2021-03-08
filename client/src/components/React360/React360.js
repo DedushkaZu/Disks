@@ -39,10 +39,10 @@ class React360 extends Component {
 
   updateImageIndex = currentPosition => {
     let numImages = this.props.numImages;
-    console.log('--->', numImages);
+    // console.log('--->', numImages);
     const pixelsPerImage = pixelsPerDegree * (360 / numImages);
     const { dragStart, imageIndex, dragStartIndex } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     // pixels moved
     let dx = (currentPosition - dragStart) / pixelsPerImage;
     let index = Math.floor(dx) % numImages;

@@ -2,63 +2,80 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom';
-import { getAllCars } from '../../redux/actionCreators/cars';
+// import { useHistory } from 'react-router-dom';
+// import { getAllCars } from '../../redux/actionCreators/cars';
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
-  const [car, setCar] = useState('images/v-g-d1-g')
-  let models = {};
-  let currentModel = {};
-  const [chooseCar, setChooseCar] = useState(false);
-
+  const [tapacStyle, setTapacStyle] = useState(false)
+  const [chooseCar, setChooseCar] = useState(true);
+  const [brand, setBrand] = useState('v')
+  const [model, setModel] = useState('g')
+  const [disk, setdisk] = useState('d1')
+  const [color, setColor] = useState('g')
+  const photoCount = cars[brand][model].photoCount
+  console.log(cars.v.g.photoCount)
+  console.log(photoCount)
+  
 
   function handlerDisks1() {
-    setCar('images/v-g-d1-g')
+    setdisk('d1')
   }
 
   function handlerDisks2() {
-    setCar('images/v-g-d2-g')
+    setdisk('d2')
   }
   function handlerDisks3() {
-    setCar('images/v-g-d3-g')
+    setdisk('d3')
   }
-  function handlerColor1() {
-    setCar('images/T-v-g-d1-o')
-  }
-  function handlerColor2() {
-    setCar('images/T-v-g-d2-o')
+  // function handlerColor1() {
+  //   setCar('images/T-v-g-d1-o')
+  // }
+  // function handlerColor2() {
+  //   setCar('images/T-v-g-d2-o')
+  // }
+
+  const handlerTapacStyle = () => {
+    setTapacStyle(!tapacStyle)
   }
 
-  const handlerChoose = () => {
-    setChooseCar(!chooseCar)
+  const handlerChoose = (e) => {
+    if ( brand && model) {
+      setChooseCar(!chooseCar)
+    }
   }
 
   function handerChooseCar(e) {
-    models = cars[e.target.value]
-    console.log(models);
+    const choosenBrand = e.target.value
+    console.log(choosenBrand)
+    setBrand(`cars/${choosenBrand}/g/d1/g`)
   }
 
   function handlerChooseModel(e) {
-    currentModel = models[e.target.value]
-    console.log(currentModel);
+    const choosenModel = e.target.value
+    console.log(choosenModel)
+    setModel(`cars/${choosenModel}/g/d1/g`)
   }
 
   return (
         chooseCar ? (
           <div className="configurator-wrapper">
-            <React360  dir={car} numImages={20}/>
+            {
+              tapacStyle ?
+            <React360  dir={`cars/T/v/g/d1/o/`} numImages={23}/> :
+            <React360  dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount}/>
+            }
 
           <div className="options-container">
-
+            <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
             <div className="colors">
               <div className="big-block">
                 <h1>Color:</h1>
                 <div className="color-red sm-blocks-c"></div>
                 <div className="color-white sm-blocks-c"></div>
                 <div className="color-black sm-blocks-c"></div>
-                <div onClick={handlerColor1} className="color-green sm-blocks-c"></div>
-                <div onClick={handlerColor2} className="color-orange sm-blocks-c"></div>
+                <div className="color-green sm-blocks-c"></div>
+                <div className="color-orange sm-blocks-c"></div>
               </div>
             </div>
             <div className="disks">
@@ -79,13 +96,13 @@ function Configurator() {
         ) : 
         (
         <div>
-          <select className="car-brand">
+          <select onChange={handerChooseCar} className="car-brand">
             <option value="default"></option>
-            <option value="m">Mercedes</option>
+            <option value="v">Volkswagen</option>
           </select>
-          <select className="car-brand-models">
+          <select onChange={handlerChooseModel} className="car-brand-models">
             <option value="default"></option>
-            <option value="s">S-class</option>
+            <option value="g">Golf</option>
           </select>
           <button onClick={handlerChoose}>Choose</button>
         </div>

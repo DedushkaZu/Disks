@@ -1,13 +1,13 @@
 import './Header.css';
-import logo from '../../logo.svg';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../../redux/actionCreators/user';
 
 function Header() {
+  const index = Math.floor(Math.random() * 4 + 1);
+  console.log(index)
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
-  console.log(auth);
   const handlerLogout = () => {
     dispatch(logoutUser())
     localStorage.clear();
@@ -18,7 +18,7 @@ function Header() {
     <header className="App-header">
       <div className="logo-wrapper">
         <Link to="/" >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={`../../logo/logo${index}.svg`} className="App-logo" alt="logo" />
         </Link>
       </div>
 
