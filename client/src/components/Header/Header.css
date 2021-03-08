@@ -7,10 +7,14 @@
   /* flex-wrap: wrap; */
 }
 
+.logo-wrapper{
+  width: 25vw;
+}
+
 .App-logo {
   height: 9vh;
   pointer-events: none;
-  width: 25vw;
+  width: 10vw;
 }
 
 .project-wrapper{
@@ -23,12 +27,13 @@
   width: 25vw;
   height: 10vh;
   display: flex;  
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
 }
 .nav-bar-item{
   color: rgb(0, 0, 0);
   text-decoration: none;
+  margin-left: 1vw;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }

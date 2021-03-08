@@ -1,9 +1,8 @@
-.react360 {
+.react-360-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
-    /* background-color: white; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -13,5 +12,5 @@
 }
   
 .react-360-img{
-  width: 75vw;
+  width: 100%;
 }

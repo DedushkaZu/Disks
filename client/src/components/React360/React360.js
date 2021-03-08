@@ -72,21 +72,18 @@ class React360 extends Component {
     const { imageIndex } = this.state;
 
     return (
-      <div className="react360">
         <img
           className="react-360-img"
           alt=""
-          src={(`/${this.props.dir}/car-${imageIndex}.jpg`)}
-        // src={require(`../../images/m-d1/car-${imageIndex}.jpg`)}
+          src={`/${this.props.dir}/${imageIndex}.jpg`}
         />
-      </div>
     );
   };
 
   render = () => {
     return (
       <div
-        className="react-360-img"
+        className="react-360-container"
         onMouseDown={this.handleMouseDown}
         onDragStart={this.preventDragHandler}
       >
