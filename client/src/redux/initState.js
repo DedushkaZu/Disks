@@ -1,7 +1,3 @@
-// function auth() {
-//   return Boolean(window.localStorage.getItem('auth'))
-// }
-console.log(localStorage.getItem('auth'));
 const initState = {
   loader: false,
   error: {
@@ -14,7 +10,15 @@ const initState = {
     m: {
       s: {
         disks: 2,
-        color: ['black', 'white']
+        color: ['black', 'white'],
+        photoCount: 20
+      }
+    },
+    v: {
+      g: {
+        disks: ['d1','d2'],
+        color: ['g', 'o'],
+        photoCount: 24
       }
     }
   }

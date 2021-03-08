@@ -1,7 +1,7 @@
 import './Register.css';
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useState } from 'react';
-import { registrationUser, checkAuth } from '../../redux/actionCreators/user';
+import { registrationUser } from '../../redux/actionCreators/user';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Register() {
