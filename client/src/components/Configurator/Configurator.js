@@ -1,10 +1,10 @@
 import './Configurator.css';
-import  React360  from '../React360/React360'
+import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Configurator() {
-  
+
   const [car, setCar] = useState('images/m-d1')
   // const history = useHistory();
   // useEffect(() => {
@@ -30,12 +30,12 @@ function Configurator() {
 
   return (
     <div>
-      <React360  dir={car} numImages={12}/>
-      <div className="cloudimage-360" data-folder={car} data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true'/>
-      <div>{car}</div>
+      <React360 dir={car} numImages={12} />
+      {/* <div className="cloudimage-360" data-folder={car} data-filename="car-{index}.jpg" data-amount="12" data-hide-360-logo='true' /> */}
+      {/* <div>{car}</div>
 
       <button onClick={handlerDisks1}>disk 1</button>
-      <button onClick={handlerDisks2}>disk 2</button>
+      <button onClick={handlerDisks2}>disk 2</button> */}
       <div className="container">
 
 
