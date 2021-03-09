@@ -128,7 +128,6 @@ function Configurator() {
       </div>
       ) :
       (
-        <div>
           <div className="container">
             <div className="card">
               <div className="face face1">
@@ -177,9 +176,6 @@ function Configurator() {
               </div>
             </div>
           </div>
-        </div >
-
-
       )
   )
 }
