@@ -22,7 +22,6 @@ function Configurator() {
   const bigDisks = cars[brand][model].linkDisksBig;
 
 
-
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
   }
@@ -60,6 +59,7 @@ function Configurator() {
   }
 
 
+
   return (
     chooseCar ? (
       <div className="configurator-wrapper">
@@ -76,8 +76,8 @@ function Configurator() {
             <div className="big-block">
               <h1>Color:</h1>
               {
-                colors?.length ? (colors.map((el) => (
-                  <div>
+                colors?.length ? (colors.map((el, index) => (
+                  <div key={index}>
                     {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
                     {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
                     {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
@@ -93,7 +93,7 @@ function Configurator() {
               <h1>Disks:</h1>
               {
                 disks?.length ? (disks.map((el, index) => (
-                  <div>
+                  <div key={index}>
                     <div onClick={() => handlerDisk(index + 1, bigDisks[index])} className="disk sm-blocks-d"><img src={smallDisks[index]} alt="disk"></img></div>
                   </div>
                 ))) : <div></div>
@@ -117,7 +117,58 @@ function Configurator() {
             <option value="g">Golf</option>
           </select>
           <button onClick={handlerChoose}>Choose</button>
-        </div>
+
+
+
+          <div className="container">
+            <div className="card">
+              <div className="face face1">
+                <div className="content">
+                  <div className="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Volkswagen_logo_2019.svg" alt="brand1" />
+                  </div>
+                  <h3>Volkswagen</h3>
+                </div>
+              </div>
+              <div className="face face2">
+                <div className="content">
+                  <button onClick={handlerChoose}>Golf</button>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="face face1">
+                <div className="content">
+                  <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true" />
+                  <h3>Code</h3>
+                </div>
+              </div>
+              <div className="face face2">
+                <div className="content">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="face face1">
+                <div className="content">
+                  <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true" />
+                  <h3>Launch</h3>
+                </div>
+              </div>
+              <div className="face face2">
+                <div className="content">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div >
+
+
       )
   )
 }
