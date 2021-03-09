@@ -20,6 +20,7 @@ function Configurator() {
   const disks = cars[brand][model].disks;
   const smallDisks = cars[brand][model].linkDisksSmall;
   const bigDisks = cars[brand][model].linkDisksBig;
+  const namesDisks = cars[brand][model].nameDisks;
 
 
   const handlerTapacStyle = () => {
@@ -54,7 +55,7 @@ function Configurator() {
     }));
   };
 
-  function handlerDisk(value, linkImageDisk) {
+  function handlerDisk(value, linkImageDisk, nameDisk) {
     setDisk(`d${value}`);
   }
 
@@ -94,7 +95,7 @@ function Configurator() {
               {
                 disks?.length ? (disks.map((el, index) => (
                   <div key={index}>
-                    <div onClick={() => handlerDisk(index + 1, bigDisks[index])} className="disk sm-blocks-d"><img src={smallDisks[index]} alt="disk"></img></div>
+                    <div onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="disk sm-blocks-d"><img src={smallDisks[index]} alt="disk"></img></div>
                   </div>
                 ))) : <div></div>
               }
