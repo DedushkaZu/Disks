@@ -38,6 +38,8 @@ function Configurator() {
     setSmallDisks(cars[brand][model].linkDisksSmall);
     setBigDisks(cars[brand][model].linkDisksBig);
     setNamesDisks(cars[brand][model].nameDisks);
+    setCurrentLinkDisk(bigDisks[0]);
+    setCurrentNameDisk(namesDisks[0]);
     if (brand && model) {
       setChooseCar(!chooseCar)
     }
