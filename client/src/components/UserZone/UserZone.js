@@ -1,4 +1,4 @@
-import './UserZone.css';
+import './UserZone.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { loadBasket } from '../../redux/actionCreators/user';
@@ -20,20 +20,17 @@ const UserZone = () => {
       <div>
         <h3>{userName}</h3>
       </div>
-      <div>
-        configurators:
-         <div>
-          {disks.map(el =>
-            <div className="card">
-              <img src={el.photo} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">{el.path}</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-              </div>
+      <div className='user-disks-container'>
+        {disks.map(el =>
+          <div class="flip">
+            <div class="front" style={{ 'background-image': `url(${el.photo})` }}>
+              <h1 class="text-shadow">MOUNTAIN</h1>
             </div>
-          )}
-        </div>
+            <div class="back">
+              <h2>Angular</h2>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -77,9 +77,7 @@ router.post('/config', async (req, res) => {
   }
 
   const item = user.basket.find((el) => el.path === config.path);
-  console.log('find', user.basket.find((el) => el.path === config.path));
-  console.log('config', config);
-  console.log('basket', user.basket);
+
   if (!item) {
     user.basket.push(config);
   } else {
