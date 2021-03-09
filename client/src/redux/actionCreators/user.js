@@ -1,4 +1,4 @@
-import { CHECK_AUTH, PUSH_IN_USERBASKET } from '../types/user';
+import { CHECK_AUTH, PUSH_IN_USERBASKET, TAKE_BASKET_FROM_DB } from '../types/user';
 import { addLoader, removeLoader } from '../actionCreators/loader';
 
 
@@ -94,10 +94,35 @@ const pushInUserBasket = (config) => {
   }
 };
 
+const loadBasket = (id) => async (dispatch, usestate) => {
+  // dispatch(addLoader());
+  const response = await fetch('http://localhost:3001/user/basket', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id }),
+  });
+
+  if (response.status === 200) {
+    const basket = await response.json();
+    dispatch(takeBasketFromDb(basket));
+  }
+  // dispatch(removeLoader());
+};
+
+const takeBasketFromDb = (basket) => {
+  return {
+    type: TAKE_BASKET_FROM_DB,
+    payload: basket,
+  }
+};
+
 export {
   registrationUser,
   loginUser,
   logoutUser,
   checkAuth,
   saveConfig,
+  loadBasket
 }

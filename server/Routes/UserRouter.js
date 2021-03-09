@@ -76,7 +76,10 @@ router.post('/config', async (req, res) => {
     return res.sendStatus(444);
   }
 
-  const item = user.basket.find((el) => el.path !== config.path);
+  const item = user.basket.find((el) => el.path === config.path);
+  console.log('find', user.basket.find((el) => el.path === config.path));
+  console.log('config', config);
+  console.log('basket', user.basket);
   if (!item) {
     user.basket.push(config);
   } else {
@@ -91,6 +94,18 @@ router.post('/config', async (req, res) => {
   }
   // console.log(user);
   return res.status(200).json(user);
+});
+
+router.post('/basket', async (req, res) => {
+  const { id } = req.body;
+  try {
+    const user = await User.findById(id);
+    console.log(user);
+    return res.status(200).json(user.basket);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
 });
 
 module.exports = router;

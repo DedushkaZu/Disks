@@ -24,14 +24,11 @@ function App() {
   const loader = useSelector(state => state.loader)
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     fetch('http://localhost:3001/user/check', {
       credentials: 'include'
     }).then(response => response.json())
       .then(result => result.cheker === 'ok' ? dispatch(checkAuth(true)) : dispatch(checkAuth(false)))
-    return () => {
-    }
   }, [])
 
   return (
