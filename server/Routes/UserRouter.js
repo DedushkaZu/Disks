@@ -98,12 +98,25 @@ router.post('/basket', async (req, res) => {
   const { id } = req.body;
   try {
     const user = await User.findById(id);
-    console.log(user);
     return res.status(200).json(user.basket);
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);
   }
+});
+
+router.delete('/basket', async (req, res) => {
+  const { path, userID } = req.body;
+
+  try {
+    const user = await User.findById(userID);
+    console.log(user);
+    user.basket = user.basket.filter((el) => el.path !== path);
+    await user.save();
+  } catch (error) {
+    console.log(error);
+  }
+  res.end();
 });
 
 module.exports = router;

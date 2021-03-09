@@ -16,6 +16,7 @@ function Configurator() {
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
   const [currentLinkDisk, setCurrentLinkDisk] = useState('');
+  const [currentNameDisk, setCurrentNameDisk] = useState('');
   const dispatch = useDispatch();
 
 
@@ -55,14 +56,17 @@ function Configurator() {
       path: `cars/${brand}/${model}/${disk}/${color}/`,
       numImages: photoCount,
       photo: currentLinkDisk,
+      name: currentNameDisk
     }));
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
     setDisk(`d${value}`);
     setCurrentLinkDisk(linkImageDisk);
+    setCurrentNameDisk(nameDisk);
   }
 
+  console.log(currentNameDisk);
 
 
   return (

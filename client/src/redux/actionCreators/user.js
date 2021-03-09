@@ -1,4 +1,5 @@
 import { CHECK_AUTH, PUSH_IN_USERBASKET, TAKE_BASKET_FROM_DB } from '../types/user';
+import { CONFIG_STATUS } from '../types/status';
 import { addLoader, removeLoader } from '../actionCreators/loader';
 
 
@@ -95,7 +96,6 @@ const pushInUserBasket = (config) => {
 };
 
 const loadBasket = (id) => async (dispatch, usestate) => {
-  // dispatch(addLoader());
   const response = await fetch('http://localhost:3001/user/basket', {
     method: 'POST',
     headers: {
@@ -108,7 +108,6 @@ const loadBasket = (id) => async (dispatch, usestate) => {
     const basket = await response.json();
     dispatch(takeBasketFromDb(basket));
   }
-  // dispatch(removeLoader());
 };
 
 const takeBasketFromDb = (basket) => {
@@ -118,11 +117,31 @@ const takeBasketFromDb = (basket) => {
   }
 };
 
+const deleteItemFromBasketInDb = (path, userID) => async (dispatch, getState) => {
+  dispatch(addLoader());
+  await fetch(`http://localhost:3001/user/basket`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ path, userID })
+  });
+  dispatch(removeLoader());
+};
+
+const changeConfigStatus = () => {
+  return {
+    type: CONFIG_STATUS,
+  }
+};
+
 export {
   registrationUser,
   loginUser,
   logoutUser,
   checkAuth,
   saveConfig,
-  loadBasket
+  loadBasket,
+  deleteItemFromBasketInDb,
+  changeConfigStatus,
 }
