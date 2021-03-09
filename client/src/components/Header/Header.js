@@ -23,7 +23,7 @@ function Header() {
       </div>
 
       <div className="project-wrapper">
-        <span>НОРМАЛЬНЫЕ ДИСКИ</span>
+        <span>NORMAL DISKS</span>
       </div>
       <nav className="nav-bar">
         {auth ?
