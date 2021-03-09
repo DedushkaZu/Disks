@@ -1,19 +1,5 @@
-
 .configurator-wrapper{
-  width: 96vw;
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column ;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.options-container{
-  width: 96vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  width: 90vw;
 }
 
 .big-block{
@@ -21,12 +7,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .sm-blocks-d{
-  width: 9.4vw;
-  height: 18vh;
+  width: 4vw;
+  height: 8vh;
   max-height: 25vh;
   margin: 1vw;
   /* background-color: white ;
@@ -40,7 +26,10 @@
   border: 2px solid black;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-
+.sm-blocks-d-img{
+  width: 4vw;
+  height: 8vh;
+}
 
 .colors{
   width: 100%;
@@ -58,7 +47,7 @@
   width: 2vw;
   height: 3vh;
   max-height: 8vh;
-  margin: 2vh;
+  /* margin: 2vh; */
   background-color: white ;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
@@ -84,6 +73,113 @@
 }
 
 
+input#menu {
+  display: none;
+}
+
+.icon {
+  background: #FFF;
+  cursor: pointer;
+  display: block;
+  height: 24px;
+  padding: 16px;
+  width: 24px;
+}
+
+label.icon {
+  position: fixed;
+  z-index: 200;
+}
+
+.icon .menu,
+.icon .menu::before,
+.icon .menu::after {
+  background: #9FB1BD;
+  content: '';
+  display: block;
+  height: 2px;
+  position: absolute;
+  transition: background ease .3s, top ease .3s .3s, transform ease .3s;
+  width: 20px;
+}
+
+.icon:hover .menu,
+.icon:hover .menu::before,
+.icon:hover .menu::after {
+  background: #000000;
+}
+
+.icon .menu {
+  left: 18px;
+  top: 27px;
+}
+
+.icon .menu::before {
+  top: -6px;
+}
+
+.icon .menu::after {
+  top: 6px;
+}
+
+#menu:checked + .icon .menu {
+  background: transparent;
+}
+
+#menu:checked + .icon .menu::before {
+  transform: rotate(45deg);
+}
+
+#menu:checked + .icon .menu::after {
+  transform: rotate(-45deg);
+}
+
+#menu:checked + .icon .menu::before,
+#menu:checked + .icon .menu::after {
+  top: 0;
+  transition: top ease .3s, transform ease .3s .3s;
+}
+
+.config-nav {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  height: 48.85vh;
+  padding-top: 8vh;
+  position: fixed;
+  transition: width ease .6s;
+  width: 4vw;
+  z-index: 100;
+  overflow: hidden;
+}
+
+#menu:checked ~ .config-nav  {
+  width: 20vw;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.config-nav  ul {
+  opacity: 0;
+  transition: opacity ease .6s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu:checked ~ .config-nav  ul {
+  opacity: 1;
+}
+
+.config-nav  li {
+  cursor: pointer;
+  display: block;
+  line-height: 60px;
+  padding-left: 16px;
+  white-space: nowrap;
+}
+
+
+
+/* ============================================================================================ */
 
 .container{
   width: 1000px;
