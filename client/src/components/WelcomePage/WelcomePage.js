@@ -1,4 +1,3 @@
-import Carousel from '../Carousel/Carousel';
 import './WelcomePage.scss';
 
 const WelcomePage = () => {
