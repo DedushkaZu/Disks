@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../../redux/actionCreators/user';
 
 function Header() {
+  const userName = window.localStorage.getItem('name');
   const index = Math.floor(Math.random() * 4 + 1);
   // console.log(index)
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function Header() {
             </div>
             <div >
               <Link className="nav-bar-link" to="/userzone" >
-                <p className="nav-bar-item">userzone</p>
+                <p className="nav-bar-item">{userName}</p>
               </Link>
             </div>
             <div >

@@ -16,7 +16,8 @@ const UserZone = () => {
     dispatch(loadBasket(userID))
   }, [])
 
-  const handlerDelete = (path, userID) => {
+  const handlerDelete = (e, path, userID) => {
+    e.stopPropagation();
     dispatch(deleteItemFromBasketInDb(path, userID));
     console.log(userID);
   };
@@ -33,7 +34,6 @@ const UserZone = () => {
   return (
     <div>
       <div>
-        <h3>{userName}</h3>
       </div>
       {configurator ?
         <>
@@ -48,7 +48,7 @@ const UserZone = () => {
               </div>
               <div onClick={(e) => { handlerConfig(el.path, el.numImages) }} className="back">
                 <h5>{el.name}</h5>
-                <button onClick={() => { handlerDelete(el.path, userID) }} className='btn btn-danger'><p>Удалить</p></button>
+                <button onClick={(e) => { handlerDelete(e, el.path, userID) }} className='btn btn-danger'><p>Удалить</p></button>
               </div>
             </div>
           )}
