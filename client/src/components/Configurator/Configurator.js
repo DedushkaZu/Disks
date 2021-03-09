@@ -12,7 +12,7 @@ function Configurator() {
   const [brand, setBrand] = useState('')
   const [model, setModel] = useState('')
   const [disk, setDisk] = useState('d1')
-  const [color, setColor] = useState('g')
+  const [color, setColor] = useState('')
   const [photoCount, SetPhotoCount] = useState(null);
   const [colors, setColors] = useState(null)
   const [currentLinkDisk, setCurrentLinkDisk] = useState('');
@@ -28,9 +28,10 @@ function Configurator() {
     setTapacStyle(!tapacStyle)
   }
 
-  const handlerChoose = (e, brand, model) => {
+  const handlerChoose = (e, brand, model, currentColor) => {
     setBrand(brand);
     setModel(model);
+    setColor(currentColor);
     SetPhotoCount(cars[brand][model].photoCount);
     setColors(cars[brand][model].color);
     setDisks(cars[brand][model].disks);
@@ -150,7 +151,7 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
-                <button onClick={(e) => handlerChoose(e, 'v', 'g')}>Golf</button>
+                <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Golf</button>
               </div>
             </div>
           </div>
@@ -165,7 +166,7 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
-                <button onClick={(e) => handlerChoose(e, 'm', 'e')}>E-classe</button>
+                <button onClick={(e) => handlerChoose(e, 'm', 'e', 'b')}>E-classe</button>
               </div>
             </div>
           </div>

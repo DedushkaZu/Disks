@@ -8,10 +8,13 @@ const initState = {
   cars:
   {
     m: {
-      s: {
-        disks: 2,
-        color: ['black', 'white'],
-        photoCount: 20
+      e: {
+        disks: ['d1'],
+        color: ['b'],
+        linkDisksSmall: ['discs/m-e-d1-DEZENT-TH-DARK-small.png'],
+        linkDisksBig: ['discs/m-e-d1-DEZENT-TH-DARK-big.png'],
+        nameDisks: ['DEZENT-TH-DARK'],
+        photoCount: 24
       }
     },
     v: {
