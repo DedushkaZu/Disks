@@ -8,7 +8,7 @@ import { saveConfig } from '../../redux/actionCreators/user';
 function Configurator() {
   const cars = useSelector(state => state.cars);
   const [tapacStyle, setTapacStyle] = useState(false)
-  const [chooseCar, setChooseCar] = useState(true);
+  const [chooseCar, setChooseCar] = useState(false);
   const [brand, setBrand] = useState('v')
   const [model, setModel] = useState('g')
   const [disk, setDisk] = useState('d1')
@@ -35,14 +35,12 @@ function Configurator() {
 
   function handerChooseCar(e) {
     const choosenBrand = e.target.value
-    console.log(choosenBrand)
-    setBrand(`cars/${choosenBrand}/g/d1/g`)
+    setBrand(`${choosenBrand}`)
   }
 
   function handlerChooseModel(e) {
     const choosenModel = e.target.value
-    console.log(choosenModel)
-    setModel(`cars/${choosenModel}/g/d1/g`)
+    setModel(`${choosenModel}`)
   }
 
   function handlerColor(value) {
