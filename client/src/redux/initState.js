@@ -26,5 +26,6 @@ const initState = {
     }
   },
   basket: [],
+  config: false,
 }
 export default initState
