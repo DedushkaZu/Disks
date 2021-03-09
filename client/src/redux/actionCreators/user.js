@@ -74,14 +74,16 @@ const saveConfig = (config) => async (dispatch, getState) => {
     body: JSON.stringify({ config, id }),
   })
 
-  const savedConfig = await response.json();
 
-  if (response.status !== 200) {
-    alert('Что то пошло не так.')
-  } else {
+  if (response.status === 200) {
+    const savedConfig = await response.json();
     dispatch(pushInUserBasket(savedConfig.basket))
-    alert('Успешно.')
-  }
+    alert('Успешно.');
+  } else if (response.status === 205) {
+    alert('Данный диск уже добавлен вами в избранное');
+  } else {
+    alert('Что то пошло не так.');
+  };
   dispatch(removeLoader());
 };
 

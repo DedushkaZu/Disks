@@ -76,7 +76,12 @@ router.post('/config', async (req, res) => {
     return res.sendStatus(444);
   }
 
-  user.basket.push(config);
+  const item = user.basket.find((el) => el.path !== config.path);
+  if (!item) {
+    user.basket.push(config);
+  } else {
+    return res.sendStatus(205);
+  }
 
   try {
     await user.save();
