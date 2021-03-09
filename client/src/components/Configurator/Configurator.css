@@ -116,7 +116,6 @@
 }
 
 .container .card:hover .face.face1{
-  /* background: #ff0057; */
     background:  #e7e9ec;
   transform: translateY(0);
 }
@@ -148,17 +147,12 @@
 }
 
 .container .card:hover .face.face1 .content h3{
-  /* margin: 10px 0 0;
-  padding: 0; */
   color: #333;
-  /* text-align: center;
-  font-size: 1.5em; */
 }
 
 
 .container .card .face.face2{
   position: relative;
-  /* background: #fff; */
   background:  #e7e9ec;
   display: flex;
   justify-content: center;
@@ -183,9 +177,10 @@
   display:  inline-block;
   text-decoration: none;
   font-weight: 900;
-  color: rgb(0, 0, 0);
+  color: #333;
   padding: 5px;
-  border: 1px solid #333;
+  border: none;
+  background: #e7e9ec;
 }
 
 .container .card .face.face2 .content button:hover{
