@@ -22,6 +22,7 @@ function Configurator() {
   const disks = cars[brand][model].disks;
   const smallDisks = cars[brand][model].linkDisksSmall;
   const bigDisks = cars[brand][model].linkDisksBig;
+  const namesDisks = cars[brand][model].nameDisks;
 
 
   const handlerTapacStyle = () => {
@@ -57,7 +58,7 @@ function Configurator() {
     }));
   };
 
-  function handlerDisk(value, linkImageDisk) {
+  function handlerDisk(value, linkImageDisk, nameDisk) {
     setDisk(`d${value}`);
     setCurrentLinkDisk(linkImageDisk);
   }
@@ -101,7 +102,7 @@ function Configurator() {
                         {
                           disks?.length ? (disks.map((el, index) => (
                             <div key={index}>
-                              <div onClick={() => handlerDisk(index + 1, bigDisks[index])} className="disk sm-blocks-d"><img className="sm-blocks-d-img" src={smallDisks[index]} alt="disk"></img></div>
+                              <div onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="disk sm-blocks-d"><img className="sm-blocks-d-img" src={smallDisks[index]} alt="disk"></img></div>
                             </div>
                           ))) : <div></div>
                         }
@@ -128,18 +129,6 @@ function Configurator() {
       ) :
       (
         <div>
-          <select onChange={handerChooseCar} className="car-brand">
-            <option value="default"></option>
-            <option value="v">Volkswagen</option>
-          </select>
-          <select onChange={handlerChooseModel} className="car-brand-models">
-            <option value="default"></option>
-            <option value="g">Golf</option>
-          </select>
-          <button onClick={handlerChoose}>Choose</button>
-
-
-
           <div className="container">
             <div className="card">
               <div className="face face1">
@@ -159,22 +148,25 @@ function Configurator() {
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true" />
-                  <h3>Code</h3>
+                  <div className="img-container">
+                    <img src="http://pngimg.com/uploads/mercedes_logos/mercedes_logos_PNG3.png" alt="brand2" />
+                  </div>
+                  <h3>Mercedes</h3>
                 </div>
               </div>
               <div className="face face2">
                 <div className="content">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                  <a href="#">Read More</a>
+                  <button onClick={handlerChoose}>S-classe</button>
                 </div>
               </div>
             </div>
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true" />
-                  <h3>Launch</h3>
+                  <div className="img-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/600px-BMW_logo_%28gray%29.svg.png" alt="brand3" />
+                  </div>
+                  <h3>BMW</h3>
                 </div>
               </div>
               <div className="face face2">
@@ -185,7 +177,6 @@ function Configurator() {
               </div>
             </div>
           </div>
-
         </div >
 
 

@@ -1,11 +1,34 @@
 import Carousel from '../Carousel/Carousel';
+import './WelcomePage.scss';
 
 const WelcomePage = () => {
+
+
+
   return (
-    <div>
-      <Carousel />
-      <div>
-        asdds
+    <div class="wrapper">
+      <div class="slideshows">
+        <div class="slideshow slideshow--hero">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
+        <div class="slideshow slideshow--contrast slideshow--contrast--before">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
+        <div class="slideshow slideshow--contrast slideshow--contrast--after">
+          <div class="slides">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
