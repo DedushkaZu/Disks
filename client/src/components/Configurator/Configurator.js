@@ -2,8 +2,7 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-// import { useHistory } from 'react-router-dom';
-// import { getAllCars } from '../../redux/actionCreators/cars';
+
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -16,24 +15,9 @@ function Configurator() {
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
   const disks = cars[brand][model].disks;
+  const smallDisks = cars[brand][model].linkDisksSmall;
+  const bigDisks = cars[brand][model].linkDisksBig;
 
-
-  // function handlerDisks1() {
-  //   setdisk('d1')
-  // }
-
-  // function handlerDisks2() {
-  //   setdisk('d2')
-  // }
-  // function handlerDisks3() {
-  //   setdisk('d3')
-  // }
-  // function handlerColor1() {
-  //   setCar('images/T-v-g-d1-o')
-  // }
-  // function handlerColor2() {
-  //   setCar('images/T-v-g-d2-o')
-  // }
 
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
@@ -61,7 +45,7 @@ function Configurator() {
     setColor(value);
   }
 
-  function handlerDisk(value) {
+  function handlerDisk(value, linkImageDisk) {
     setDisk(`d${value}`);
   }
 
@@ -90,11 +74,6 @@ function Configurator() {
                   </div>
                 ))) : <div></div>
               }
-              {/* <div className="color-red sm-blocks-c"></div>
-              <div className="color-white sm-blocks-c"></div>
-              <div className="color-black sm-blocks-c"></div>
-              <div className="color-green sm-blocks-c"></div>
-              <div className="color-orange sm-blocks-c"></div> */}
             </div>
           </div>
           <div className="disks">
@@ -103,17 +82,10 @@ function Configurator() {
               {
                 disks?.length ? (disks.map((el, index) => (
                   <div>
-                    <div onClick={() => handlerDisk(index + 1)} className="disk sm-blocks-d"></div>
+                    <div onClick={() => handlerDisk(index + 1, bigDisks[index])} className="disk sm-blocks-d"><img src={smallDisks[index]} alt="disk"></img></div>
                   </div>
                 ))) : <div></div>
               }
-
-
-              {/* <div onClick={handlerDisks1} className="disk sm-blocks-d" >Disk1</div>
-              <div onClick={handlerDisks2} className="disk sm-blocks-d" >Disk2</div>
-              <div onClick={handlerDisks3} className="disk sm-blocks-d" >Disk3</div> */}
-              {/* <div onClick={handlerDisks4} className="disk sm-blocks-d" >Disk4</div>
-                <div onClick={handlerDisks5} className="disk sm-blocks-d" >Disk1</div> */}
             </div>
           </div>
         </div>
