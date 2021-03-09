@@ -72,51 +72,66 @@ function Configurator() {
   return (
     chooseCar ? (
       <div className="configurator-wrapper">
+        <div className="options-container">
+          <input type="checkbox" id="menu"/>
+          <label for="menu"  className="icon">
+                  <div  className="menu"></div>
+          </label>
+
+          <nav className="config-nav">
+              <ul className="config-ul">
+                  <li>
+                    <div><button className="btn btn-light btn-sm" onClick={handlerTapacStyle}>Tapac style</button></div>
+                  </li>
+                  <li>
+                    <div className="colors">
+                      <div className="big-block">
+                        {
+                          colors?.length ? (colors.map((el, index) => (
+                            <div key={index}>
+                              {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
+                              {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
+                              {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
+                              {el === 'r' ? <div onClick={() => handlerColor(el)} className="color-red sm-blocks-c"></div> : <div></div>}
+                              {el === 'w' ? <div onClick={() => handlerColor(el)} className="color-white sm-blocks-c"></div> : <div></div>}
+                            </div>
+                          ))) : <div></div>
+                        }
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="disks">
+                      <div className="big-block">
+                        {
+                          disks?.length ? (disks.map((el, index) => (
+                            <div key={index}>
+                              <div onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="disk sm-blocks-d"><img className="sm-blocks-d-img" src={smallDisks[index]} alt="disk"></img></div>
+                            </div>
+                          ))) : <div></div>
+                        }
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="choose-car-button">
+                      <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
+                    </div>
+                  </li>
+                  <li>
+                      <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
+                  </li>
+              </ul>
+          </nav>
+        </div>
         {
           tapacStyle ?
-            <React360 dir={`cars/T/v/g/d1/o/`} numImages={23} /> :
-            <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
+          <React360 dir={`cars/T/v/g/d1/o/`} numImages={23} /> :
+          <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
         }
-
-        <div className="options-container">
-          <div><button onClick={handlerSaveConfig}>Save</button></div>
-          <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
-          <div className="colors">
-            <div className="big-block">
-              <h1>Color:</h1>
-              {
-                colors?.length ? (colors.map((el, index) => (
-                  <div key={index}>
-                    {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
-                    {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
-                    {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
-                    {el === 'r' ? <div onClick={() => handlerColor(el)} className="color-red sm-blocks-c"></div> : <div></div>}
-                    {el === 'w' ? <div onClick={() => handlerColor(el)} className="color-white sm-blocks-c"></div> : <div></div>}
-                  </div>
-                ))) : <div></div>
-              }
-            </div>
-          </div>
-          <div className="disks">
-            <div className="big-block">
-              <h1>Disks:</h1>
-              {
-                disks?.length ? (disks.map((el, index) => (
-                  <div key={index}>
-                    <div onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="disk sm-blocks-d"><img src={smallDisks[index]} alt="disk"></img></div>
-                  </div>
-                ))) : <div></div>
-              }
-            </div>
-          </div>
-        </div>
-        <div className="choose-car-button">
-          <button onClick={handlerChoose}>Choose anorther car</button>
-        </div>
       </div>
-    ) :
+      ) :
       (
-        <div>
           <div className="container">
             <div className="card">
               <div className="face face1">
@@ -165,10 +180,6 @@ function Configurator() {
               </div>
             </div>
           </div>
-
-        </div >
-
-
       )
   )
 }
