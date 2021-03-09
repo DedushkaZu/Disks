@@ -34,8 +34,13 @@ function Header() {
               </Link>
             </div>
             <div >
+              <Link className="nav-bar-link" to="/userzone" >
+                <p className="nav-bar-item">userzone</p>
+              </Link>
+            </div>
+            <div >
               <Link className="nav-bar-link" to="/" >
-              <p onClick={handlerLogout} className="nav-bar-item">logout</p>
+                <p onClick={handlerLogout} className="nav-bar-item">logout</p>
               </Link>
             </div>
           </> :

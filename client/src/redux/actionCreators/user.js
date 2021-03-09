@@ -1,4 +1,4 @@
-import { CHECK_AUTH } from '../types/user';
+import { CHECK_AUTH, PUSH_IN_USERBASKET } from '../types/user';
 import { addLoader, removeLoader } from '../actionCreators/loader';
 
 
@@ -15,9 +15,10 @@ const registrationUser = (username, email, password) => async (dispatch, getStat
   if (response.status !== 200) {
     alert('Данный логин или email уже используется')
   } else {
-    const userID = await response.json();
+    const user = await response.json();
     dispatch(checkAuth(true));
-    window.localStorage.setItem('userID', userID)
+    window.localStorage.setItem('userID', user._id);
+    window.localStorage.setItem('name', user.username)
   }
   dispatch(removeLoader());
 }
@@ -35,9 +36,10 @@ const loginUser = (email, password) => async (dispatch, getState) => {
   if (response.status !== 200) {
     alert('Неверный логин или пароль');
   } else {
-    const userID = await response.json();
+    const user = await response.json();
     dispatch(checkAuth(true));
-    window.localStorage.setItem('userID', userID);
+    window.localStorage.setItem('userID', user._id);
+    window.localStorage.setItem('name', user.username)
   }
   dispatch(removeLoader());
 };
@@ -60,9 +62,42 @@ const checkAuth = (flag) => {
     payload: flag,
   }
 }
+
+const saveConfig = (config) => async (dispatch, getState) => {
+  const id = window.localStorage.getItem('userID')
+  dispatch(addLoader());
+  const response = await fetch('http://localhost:3001/user/config', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ config, id }),
+  })
+
+
+  if (response.status === 200) {
+    const savedConfig = await response.json();
+    dispatch(pushInUserBasket(savedConfig.basket))
+    alert('Успешно.');
+  } else if (response.status === 205) {
+    alert('Данный диск уже добавлен вами в избранное');
+  } else {
+    alert('Что то пошло не так.');
+  };
+  dispatch(removeLoader());
+};
+
+const pushInUserBasket = (config) => {
+  return {
+    type: PUSH_IN_USERBASKET,
+    payload: config,
+  }
+};
+
 export {
   registrationUser,
   loginUser,
   logoutUser,
   checkAuth,
-} 
+  saveConfig,
+}
