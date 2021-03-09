@@ -5,13 +5,13 @@ import { logoutUser } from '../../redux/actionCreators/user';
 
 function Header() {
   const index = Math.floor(Math.random() * 4 + 1);
-  console.log(index)
+  // console.log(index)
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
   const handlerLogout = () => {
     dispatch(logoutUser())
     localStorage.clear();
-    console.log(auth);
+    // console.log(auth);
 
   };
   return (
