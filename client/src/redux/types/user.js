@@ -3,3 +3,4 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const CHECK_AUTH = 'CHECK_AUTH';
 export const PUSH_IN_USERBASKET = 'PUSH_IN_USERBASKET';
 export const TAKE_BASKET_FROM_DB = 'TAKE_BASKET_FROM_DB';
+export const DELETE_ITEM_IN_DB = 'DELETE_ITEM_IN_DB';
