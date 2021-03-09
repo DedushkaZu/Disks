@@ -2,6 +2,7 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { saveConfig } from '../../redux/actionCreators/user';
 
 
 function Configurator() {
@@ -14,9 +15,12 @@ function Configurator() {
   const [color, setColor] = useState('g')
   const photoCount = cars[brand][model].photoCount
   const colors = cars[brand][model].color;
+  const dispatch = useDispatch();
+
   const disks = cars[brand][model].disks;
   const smallDisks = cars[brand][model].linkDisksSmall;
   const bigDisks = cars[brand][model].linkDisksBig;
+
 
 
   const handlerTapacStyle = () => {
@@ -45,9 +49,18 @@ function Configurator() {
     setColor(value);
   }
 
+
+  const handlerSaveConfig = () => {
+    dispatch(saveConfig({
+      path: `cars/${brand}/${model}/${disk}/${color}/`,
+      numImages: photoCount,
+    }));
+  };
+
   function handlerDisk(value, linkImageDisk) {
     setDisk(`d${value}`);
   }
+
 
   return (
     chooseCar ? (
@@ -59,6 +72,7 @@ function Configurator() {
         }
 
         <div className="options-container">
+          <div><button onClick={handlerSaveConfig}>Save</button></div>
           <div><button onClick={handlerTapacStyle}>Tapac style</button></div>
           <div className="colors">
             <div className="big-block">

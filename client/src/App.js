@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Configurator from './components/Configurator/Configurator';
 import { useEffect, useState } from 'react';
 import { checkAuth } from './redux/actionCreators/user';
+import UserZone from './components/UserZone/UserZone';
 
 
 function App() {
@@ -23,16 +24,16 @@ function App() {
   const loader = useSelector(state => state.loader)
   const dispatch = useDispatch();
 
-  
+
   useEffect(() => {
     fetch('http://localhost:3001/user/check', {
       credentials: 'include'
     }).then(response => response.json())
-    .then(result => result.cheker === 'ok' ? dispatch(checkAuth(true)) : dispatch(checkAuth(false)))
+      .then(result => result.cheker === 'ok' ? dispatch(checkAuth(true)) : dispatch(checkAuth(false)))
     return () => {
     }
   }, [])
-  
+
   return (
     <Router >
       {error.status ?
@@ -59,6 +60,9 @@ function App() {
                 </Route>
                 <Route exact path='/'>
                   <WelcomePage />
+                </Route>
+                <Route exact path='/userzone'>
+                  <UserZone />
                 </Route>
               </Switch>
             </div>
