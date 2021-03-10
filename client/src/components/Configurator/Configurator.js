@@ -41,16 +41,17 @@ function Configurator() {
 
   useEffect(() => {
     if (bigDisks) {
-      // console.log('---->');
+      console.log('---->');
       setCurrentLinkDisk(bigDisks[0]);
       setCurrentNameDisk(namesDisks[0]);
       setChooseCar(!chooseCar);
     }
   }, [bigDisks])
-
-  const handlerChoose = async (e, currentBrand, currentModel, currentColor) => {
+  
+  const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
-      setChooseCar(pre => !pre);
+      setChooseCar(!chooseCar);
+      console.log('---->', chooseCar);
       setDisk('d1');
     }
     setBrand(currentBrand);
@@ -84,7 +85,7 @@ function Configurator() {
       <div className="configurator-wrapper">
         <div className="options-container">
           <input type="checkbox" id="menu" />
-          <label for="menu" className="icon">
+          <label htmlFor="menu" className="icon">
             <div className="menu"></div>
           </label>
 
@@ -96,11 +97,7 @@ function Configurator() {
                     <li>
                       <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
                     </li>
-                    <li>
-                      <div className="choose-car-button">
-                        <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
-                      </div>
-                    </li>
+
                     <li>
                       <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                     </li>
@@ -113,39 +110,60 @@ function Configurator() {
                       </li>
                       <li>
                         <div className="colors">
-                          <div className="big-block">
-                            {
-                              colors?.length ? (colors.map((el, index) => (
-                                <div key={index}>
-                                  {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
-                                  {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
-                                  {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
-                                  {el === 'r' ? <div onClick={() => handlerColor(el)} className="color-red sm-blocks-c"></div> : <div></div>}
-                                  {el === 'w' ? <div onClick={() => handlerColor(el)} className="color-white sm-blocks-c"></div> : <div></div>}
-                                </div>
-                              ))) : <div></div>
-                            }
-                          </div>
+                          {
+                            colors?.length ? (colors.map((el, index) => (
+                              <div key={index}>
+                                {el === 'g' ? <div onClick={() => handlerColor(el)} className="color-green sm-blocks-c"></div> : <div></div>}
+                                {el === 'o' ? <div onClick={() => handlerColor(el)} className="color-orange sm-blocks-c"></div> : <div></div>}
+                                {el === 'b' ? <div onClick={() => handlerColor(el)} className="color-black sm-blocks-c"></div> : <div></div>}
+                                {el === 'r' ? <div onClick={() => handlerColor(el)} className="color-red sm-blocks-c"></div> : <div></div>}
+                                {el === 'w' ? <div onClick={() => handlerColor(el)} className="color-white sm-blocks-c"></div> : <div></div>}
+                              </div>
+                            ))) : <div></div>
+                          }
                         </div>
                       </li>
                       <li>
                         <div className="disks">
-                          <div className="big-block">
-                            {
-                              disks?.length ? (disks.map((el, index) => (
-                                <div key={index}>
-                                  <div onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="disk sm-blocks-d"><img className="sm-blocks-d-img" src={smallDisks[index]} alt="disk"></img></div>
-                                </div>
-                              ))) : <div></div>
-                            }
+                          <div class="carousel-container">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                              <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                              </ol>
+
+                              <div class="carousel-inner"> 
+                              {
+                                disks && disks.map((el, index) => (
+                                  index ?
+                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
+                                      <img className="" src={smallDisks[index]} alt={`disk${index}`}/>
+                                    </div>):
+                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
+                                      <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`}/>
+                                    </div>)
+                                ))
+                              } 
+                              </div>
+
+                              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </li>
-                      <li>
+                      {/* <li>
                         <div className="choose-car-button">
-                          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, brand, model)}>Choose anorther car</button>
+                          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
                         </div>
-                      </li>
+                      </li> */}
                       <li>
                         <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                       </li>
@@ -160,10 +178,13 @@ function Configurator() {
             <React360 dir={`cars/T/v/g/d1/o/`} numImages={23} /> :
             <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
         }
+        <div className="choose-car-button">
+          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
+        </div>
       </div>
     ) :
       (
-        <div className="container">
+        <div className="choose-container">
           <div className="card">
             <div className="face face1">
               <div className="content">
