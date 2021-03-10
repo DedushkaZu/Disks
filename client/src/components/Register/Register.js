@@ -26,20 +26,22 @@ function Register() {
 
 
   return (
-    <div className="form-wrapper">
+    <div class="login-box">
+      <h2>Login</h2>
       <form onSubmit={(e) => { handlerRegistration(e, username, email, password) }}>
-        <div className="mb-3">
-          <input onChange={(e) => { setUsername(e.target.value) }} value={username} placeholder="login" type="text" className="form-control" required />
+        <div class="user-box">
+          <input onChange={(e) => { setUsername(e.target.value) }} type="text" name="username" required />
+          <label>Username</label>
         </div>
-        <div className="mb-3">
-          <input onChange={(e) => { setEmail(e.target.value) }} value={email} placeholder="email" type="email" className="form-control" required />
+        <div class="user-box">
+          <input onChange={(e) => { setEmail(e.target.value) }} type="email" name="email" required />
+          <label>Email</label>
         </div>
-        <div className="mb-3">
-          <input onChange={(e) => { setPassword(e.target.value) }} value={password} placeholder="password" type="text" className="form-control" required />
+        <div class="user-box">
+          <input onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" required />
+          <label>Password</label>
         </div>
-        <div className="mb-3">
-          <button className="btn btn-light btn-sm">Register</button>
-        </div>
+        <button className='btn'>Submit</button>
       </form>
     </div>
   )
