@@ -40,7 +40,9 @@ const UserZone = () => {
       {configurator ?
         <div className='configurator-wrapper'>
           <React360 dir={currentConfig.path} numImages={currentConfig.numImages} />
-          <button onClick={handlerCloseConfigurator} className='btn btn-danger'>Закрыть</button>
+          <div className="close-button-container">
+            <button onClick={handlerCloseConfigurator} className='button-delete-disk'>Закрыть</button>
+          </div>
         </div>
         :
         <div className='user-disks-container'>

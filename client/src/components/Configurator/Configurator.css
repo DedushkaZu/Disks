@@ -1,12 +1,40 @@
 .configurator-wrapper{
   width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-div.choose-car-button{
-  width: 100%;
+.close-button-container{
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  margin-top: 1vh;
+  color: white;
+}
+
+.choose-car-button{
+  display: flex;
+  justify-content: center;
+}
+
+.choose-car-button button{
+  margin: 15px 0 0;
+  border-radius: 5px;
+  display:  inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: none;
+  background: #e7e9ec;
+  transition: color ease .5s, background ease .5s;
+}
+
+.choose-car-button button:hover{
+  color: #e7e9ec;
+  background: #333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #e7e9ec,
 }
 
 .carousel-control.left{
@@ -173,6 +201,9 @@ label.icon {
   display: flex;
   justify-content: center;
 }
+.config-nav li{
+  margin: 1px;
+}
 
 
 
@@ -268,6 +299,7 @@ label.icon {
 
 .choose-container .card .face.face2 .content button{
   margin: 15px 0 0;
+  border-radius: 5px;
   display:  inline-block;
   text-decoration: none;
   font-weight: 900;
@@ -275,12 +307,14 @@ label.icon {
   padding: 5px;
   border: none;
   background: #e7e9ec;
-  transition: color ease 1s, background ease 1s;
+  transition: color ease .5s, background ease .5s;
 }
 
 .choose-container .card .face.face2 .content button:hover{
   color: #e7e9ec;
   background: #333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #e7e9ec,
 }
 
 .choose-container .card .face.face2 .content h3{
