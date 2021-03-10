@@ -52,7 +52,6 @@ class React360 extends Component {
       index = numImages + index - 1;
     }
     index = (index + dragStartIndex) % numImages;
-    // console.log(index, dragStartIndex, numImages)
     if (index !== imageIndex) {
       this.setState({ imageIndex: index });
     }
@@ -76,35 +75,10 @@ class React360 extends Component {
         alt=""
         src={`/${this.props.dir}/${imageIndex}.jpg`}
         onMouseDown={this.handleMouseDown}
-        onDragStart={this.preventDragHandler}
-      >
-        {/* {this.renderImage()} */}
-      </img>
+        onDragStart={this.preventDragHandler} 
+      />
     );
   };
-  // renderImage = () => {
-  //   const { imageIndex } = this.state;
-
-  //   return (
-  //       <img
-  //         className="react-360-img"
-  //         alt=""
-  //         src={`/${this.props.dir}/${imageIndex}.jpg`}
-  //       />
-  //   );
-  // };
-
-  // render = () => {
-  //   return (
-  //     <div
-  //       className="react-360-container"
-  //       onMouseDown={this.handleMouseDown}
-  //       onDragStart={this.preventDragHandler}
-  //     >
-  //       {this.renderImage()}
-  //     </div>
-  //   );
-  // };
 }
 
 export default React360;
