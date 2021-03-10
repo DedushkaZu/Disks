@@ -8,7 +8,6 @@ const UserZone = () => {
   const [currentConfig, setCurrentConfig] = useState({});
   const disks = useSelector(state => state.basket);
   const configurator = useSelector(state => state.config);
-  const userName = window.localStorage.getItem('name');
   const userID = window.localStorage.getItem('userID');
   const dispatch = useDispatch();
 

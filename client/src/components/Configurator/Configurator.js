@@ -9,10 +9,10 @@ function Configurator() {
   const cars = useSelector(state => state.cars);
   const [tapacStyle, setTapacStyle] = useState(false)
   const [chooseCar, setChooseCar] = useState(false);
-  const [brand, setBrand] = useState('')
-  const [model, setModel] = useState('')
+  const [brand, setBrand] = useState(null)
+  const [model, setModel] = useState(null)
   const [disk, setDisk] = useState('d1')
-  const [color, setColor] = useState('')
+  const [color, setColor] = useState(null)
   const [photoCount, SetPhotoCount] = useState(null);
   const [colors, setColors] = useState(null)
   const [currentLinkDisk, setCurrentLinkDisk] = useState('');
@@ -23,36 +23,39 @@ function Configurator() {
   const [namesDisks, setNamesDisks] = useState(null);
   const dispatch = useDispatch();
 
-
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
   }
 
-  const handlerChoose = (e, brand, model, currentColor) => {
-    setBrand(brand);
-    setModel(model);
-    setColor(currentColor);
-    SetPhotoCount(cars[brand][model].photoCount);
-    setColors(cars[brand][model].color);
-    setDisks(cars[brand][model].disks);
-    setSmallDisks(cars[brand][model].linkDisksSmall);
-    setBigDisks(cars[brand][model].linkDisksBig);
-    setNamesDisks(cars[brand][model].nameDisks);
-    setCurrentLinkDisk(bigDisks[0]);
-    setCurrentNameDisk(namesDisks[0]);
-    if (brand && model) {
-      setChooseCar(!chooseCar)
+  useEffect(() => {
+    if (brand) {
+      SetPhotoCount(cars[brand][model].photoCount);
+      setColors(cars[brand][model].color);
+      setDisks(cars[brand][model].disks);
+      setSmallDisks(cars[brand][model].linkDisksSmall);
+      setBigDisks(cars[brand][model].linkDisksBig);
+      setNamesDisks(cars[brand][model].nameDisks);
+
     }
-  }
+  }, [brand])
 
-  function handerChooseCar(e) {
-    const choosenBrand = e.target.value
-    setBrand(`${choosenBrand}`)
-  }
+  useEffect(() => {
+    if (bigDisks) {
+      // console.log('---->');
+      setCurrentLinkDisk(bigDisks[0]);
+      setCurrentNameDisk(namesDisks[0]);
+      setChooseCar(!chooseCar);
+    }
+  }, [bigDisks])
 
-  function handlerChooseModel(e) {
-    const choosenModel = e.target.value
-    setModel(`${choosenModel}`)
+  const handlerChoose = async (e, currentBrand, currentModel, currentColor) => {
+    if (!currentBrand) {
+      setChooseCar(pre => !pre);
+      setDisk('d1');
+    }
+    setBrand(currentBrand);
+    setModel(currentModel);
+    setColor(currentColor);
   }
 
   function handlerColor(value) {
@@ -75,8 +78,6 @@ function Configurator() {
     setCurrentNameDisk(nameDisk);
   }
 
-  console.log(currentNameDisk);
-
 
   return (
     chooseCar ? (
@@ -88,25 +89,25 @@ function Configurator() {
           </label>
 
           <nav className="config-nav">
-              <ul className="config-ul">
-                  {
-                    tapacStyle ? 
-                    (<div>
-                      <li>
-                        <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
-                      </li>
-                      <li>
-                        <div className="choose-car-button">
-                          <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
-                        </div>
-                      </li>
-                      <li>
-                          <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
-                      </li>
-                    </div>
-                    ) :
-                    (
-                    <>  
+            <ul className="config-ul">
+              {
+                tapacStyle ?
+                  (<div>
+                    <li>
+                      <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
+                    </li>
+                    <li>
+                      <div className="choose-car-button">
+                        <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
+                      </div>
+                    </li>
+                    <li>
+                      <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
+                    </li>
+                  </div>
+                  ) :
+                  (
+                    <>
                       <li>
                         <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
                       </li>
@@ -146,12 +147,12 @@ function Configurator() {
                         </div>
                       </li>
                       <li>
-                          <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
+                        <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                       </li>
-                    </>  
-                    )
-                  }
-              </ul>
+                    </>
+                  )
+              }
+            </ul>
           </nav>
         </div>
         {
