@@ -46,7 +46,7 @@ function Configurator() {
       setChooseCar(!chooseCar);
     }
   }, [bigDisks])
-  
+
   const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
       setDisk('d1');
@@ -68,7 +68,7 @@ function Configurator() {
       path: `cars/${brand}/${model}/${disk}/${color}/`,
       numImages: photoCount,
       photo: currentLinkDisk,
-      name: currentNameDisk
+      name: currentNameDisk,
     }));
   };
 
@@ -132,18 +132,18 @@ function Configurator() {
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
-                              <div class="carousel-inner"> 
-                              {
-                                disks && disks.map((el, index) => (
-                                  index ?
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
-                                      <img className="" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>):
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
-                                      <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>)
-                                ))
-                              } 
+                              <div class="carousel-inner">
+                                {
+                                  disks && disks.map((el, index) => (
+                                    index ?
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
+                                        <img className="" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>) :
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
+                                        <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>)
+                                  ))
+                                }
                               </div>
 
                               <a class="left carousel-control" href="#myCarousel" data-slide="prev">
