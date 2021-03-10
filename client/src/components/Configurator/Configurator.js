@@ -50,6 +50,7 @@ function Configurator() {
   const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
       setDisk('d1');
+      setChooseCar(!chooseCar);
     }
     setBrand(currentBrand);
     setModel(currentModel);
