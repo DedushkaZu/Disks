@@ -68,29 +68,43 @@ class React360 extends Component {
     e.preventDefault();
   };
 
-  renderImage = () => {
-    const { imageIndex } = this.state;
-
-    return (
-        <img
-          className="react-360-img"
-          alt=""
-          src={`/${this.props.dir}/${imageIndex}.jpg`}
-        />
-    );
-  };
-
   render = () => {
+    const { imageIndex } = this.state;
     return (
-      <div
-        className="react-360-container"
+      <img
+        className="react-360-img"
+        alt=""
+        src={`/${this.props.dir}/${imageIndex}.jpg`}
         onMouseDown={this.handleMouseDown}
         onDragStart={this.preventDragHandler}
       >
-        {this.renderImage()}
-      </div>
+        {/* {this.renderImage()} */}
+      </img>
     );
   };
+  // renderImage = () => {
+  //   const { imageIndex } = this.state;
+
+  //   return (
+  //       <img
+  //         className="react-360-img"
+  //         alt=""
+  //         src={`/${this.props.dir}/${imageIndex}.jpg`}
+  //       />
+  //   );
+  // };
+
+  // render = () => {
+  //   return (
+  //     <div
+  //       className="react-360-container"
+  //       onMouseDown={this.handleMouseDown}
+  //       onDragStart={this.preventDragHandler}
+  //     >
+  //       {this.renderImage()}
+  //     </div>
+  //   );
+  // };
 }
 
 export default React360;
