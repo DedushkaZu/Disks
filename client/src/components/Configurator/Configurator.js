@@ -35,7 +35,6 @@ function Configurator() {
       setSmallDisks(cars[brand][model].linkDisksSmall);
       setBigDisks(cars[brand][model].linkDisksBig);
       setNamesDisks(cars[brand][model].nameDisks);
-
     }
   }, [brand])
 
@@ -48,7 +47,7 @@ function Configurator() {
     }
   }, [bigDisks])
 
-  const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
+  const handlerChoose = async (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
       setChooseCar(!chooseCar);
       setDisk('d1');
@@ -56,6 +55,7 @@ function Configurator() {
     setBrand(currentBrand);
     setModel(currentModel);
     setColor(currentColor);
+    setBigDisks(null);
   }
 
   function handlerColor(value) {
