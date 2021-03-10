@@ -17,11 +17,11 @@ function Configurator() {
   const [colors, setColors] = useState(null)
   const [currentLinkDisk, setCurrentLinkDisk] = useState('');
   const [currentNameDisk, setCurrentNameDisk] = useState('');
-  const dispatch = useDispatch();
   const [disks, setDisks] = useState(null);
   const [smallDisks, setSmallDisks] = useState(null);
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
+  const dispatch = useDispatch();
 
 
   const handlerTapacStyle = () => {
