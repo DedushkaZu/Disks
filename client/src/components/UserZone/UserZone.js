@@ -7,7 +7,8 @@ import React360 from '../React360/React360'
 const UserZone = () => {
   const [currentConfig, setCurrentConfig] = useState({});
   const disks = useSelector(state => state.basket);
-  const configurator = useSelector(state => state.config);
+  // const configurator = useSelector(state => state.config);
+  const [configurator, setConfigurator] = useState(false);
   const userID = window.localStorage.getItem('userID');
   const dispatch = useDispatch();
 
@@ -21,13 +22,15 @@ const UserZone = () => {
     console.log(userID);
   };
 
-  const handlerConfig = (path, numImages) => {
-    dispatch(changeConfigStatus());
+  const handlerConfig = async (path, numImages) => {
+    // dispatch(changeConfigStatus());
+    await setConfigurator(prev => !prev);
     setCurrentConfig({ path, numImages })
   };
 
-  const handlerCloseConfigurator = () => {
-    dispatch(changeConfigStatus());
+  const handlerCloseConfigurator = async () => {
+    // dispatch(changeConfigStatus());
+    await setConfigurator(prev => !prev);
   };
 
   return (
@@ -35,10 +38,10 @@ const UserZone = () => {
       <div>
       </div>
       {configurator ?
-        <>
+        <div>
           <React360 dir={currentConfig.path} numImages={currentConfig.numImages} />
           <button onClick={handlerCloseConfigurator} className='btn btn-danger'>Закрыть</button>
-        </>
+        </div>
         :
         <div className='user-disks-container'>
           {disks.map((el, index) =>
@@ -46,8 +49,15 @@ const UserZone = () => {
               <div className="front" style={{ 'backgroundImage': `url(${el.photo})` }}>
               </div>
               <div onClick={(e) => { handlerConfig(el.path, el.numImages) }} className="back">
-                <h5>{el.name}</h5>
-                <button onClick={(e) => { handlerDelete(e, el.path, userID) }} className='btn btn-danger'><p>Удалить</p></button>
+                <div className="content-container">
+                  <h5>{el.name}</h5>
+                </div>
+                <div className="content-container">
+                  <p>Нажмите для просмотра конфигурации</p>
+                </div>
+                <div className="content-container">
+                  <button onClick={(e) => { handlerDelete(e, el.path, userID) }} className="button-delete-disk"><p>Удалить</p></button>
+                </div>
               </div>
             </div>
           )}
