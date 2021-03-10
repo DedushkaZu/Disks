@@ -88,18 +88,16 @@ function Configurator() {
           <label htmlFor="menu" className="icon">
             <div className="menu"></div>
           </label>
-
           <nav className="config-nav">
+            <div className="save-car-button-cotainer">
+              <div className="save-car-button"><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>dfgdfgdfgdfgdfgdfg</button></div>
+            </div>
             <ul className="config-ul">
               {
                 tapacStyle ?
                   (<div>
                     <li>
                       <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
-                    </li>
-
-                    <li>
-                      <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                     </li>
                   </div>
                   ) :
@@ -159,14 +157,6 @@ function Configurator() {
                           </div>
                         </div>
                       </li>
-                      {/* <li>
-                        <div className="choose-car-button">
-                          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
-                        </div>
-                      </li> */}
-                      <li>
-                        <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
-                      </li>
                     </>
                   )
               }
@@ -179,7 +169,7 @@ function Configurator() {
             <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
         }
         <div className="choose-car-button">
-          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
+          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Вернуться назад</button>
         </div>
       </div>
     ) :
