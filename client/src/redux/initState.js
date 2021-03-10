@@ -10,7 +10,7 @@ const initState = {
     m: {
       e: {
         disks: ['d1'],
-        color: ['b'],
+        color: ['b', 'r'],
         linkDisksSmall: ['discs/m-e-d1-DEZENT-TH-DARK-small.png'],
         linkDisksBig: ['discs/m-e-d1-DEZENT-TH-DARK-big.png'],
         nameDisks: ['DEZENT-TH-DARK'],

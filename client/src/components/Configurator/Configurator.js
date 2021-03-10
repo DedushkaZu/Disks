@@ -38,8 +38,8 @@ function Configurator() {
     setSmallDisks(cars[brand][model].linkDisksSmall);
     setBigDisks(cars[brand][model].linkDisksBig);
     setNamesDisks(cars[brand][model].nameDisks);
-    setCurrentLinkDisk(bigDisks[0]);
-    setCurrentNameDisk(namesDisks[0]);
+    setCurrentLinkDisk('');
+    setCurrentNameDisk('');
     if (brand && model) {
       setChooseCar(!chooseCar)
     }
@@ -88,25 +88,25 @@ function Configurator() {
           </label>
 
           <nav className="config-nav">
-              <ul className="config-ul">
-                  {
-                    tapacStyle ? 
-                    (<div>
-                      <li>
-                        <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
-                      </li>
-                      <li>
-                        <div className="choose-car-button">
-                          <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
-                        </div>
-                      </li>
-                      <li>
-                          <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
-                      </li>
-                    </div>
-                    ) :
-                    (
-                    <>  
+            <ul className="config-ul">
+              {
+                tapacStyle ?
+                  (<div>
+                    <li>
+                      <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
+                    </li>
+                    <li>
+                      <div className="choose-car-button">
+                        <button className="btn btn-light btn-sm" onClick={handlerChoose}>Choose anorther car</button>
+                      </div>
+                    </li>
+                    <li>
+                      <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
+                    </li>
+                  </div>
+                  ) :
+                  (
+                    <>
                       <li>
                         <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
                       </li>
@@ -146,12 +146,12 @@ function Configurator() {
                         </div>
                       </li>
                       <li>
-                          <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
+                        <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                       </li>
-                    </>  
-                    )
-                  }
-              </ul>
+                    </>
+                  )
+              }
+            </ul>
           </nav>
         </div>
         {
