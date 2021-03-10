@@ -70,6 +70,7 @@ function Configurator() {
       photo: currentLinkDisk,
       name: currentNameDisk,
     }));
+
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
@@ -96,6 +97,7 @@ function Configurator() {
                     <li>
                       <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
                     </li>
+
                     <li>
                       <div><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>Save</button></div>
                     </li>

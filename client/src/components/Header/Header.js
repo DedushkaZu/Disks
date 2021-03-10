@@ -31,17 +31,17 @@ function Header() {
           <>
             <div >
               <Link className="nav-bar-link" to="/configurator" >
-                <p className="nav-bar-item">configurator</p>
+                <p className="nav-bar-item">Конфигуратор</p>
               </Link>
             </div>
             <div >
               <Link className="nav-bar-link" to="/userzone" >
-                <p className="nav-bar-item">{userName}</p>
+                <p className="nav-bar-item">Мои диски</p>
               </Link>
             </div>
             <div >
               <Link className="nav-bar-link" to="/" >
-                <p onClick={handlerLogout} className="nav-bar-item">logout</p>
+                <p onClick={handlerLogout} className="nav-bar-item">Выйти</p>
               </Link>
             </div>
           </> :
