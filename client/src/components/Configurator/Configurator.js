@@ -9,10 +9,10 @@ function Configurator() {
   const cars = useSelector(state => state.cars);
   const [tapacStyle, setTapacStyle] = useState(false)
   const [chooseCar, setChooseCar] = useState(false);
-  const [brand, setBrand] = useState('')
-  const [model, setModel] = useState('')
+  const [brand, setBrand] = useState(null)
+  const [model, setModel] = useState(null)
   const [disk, setDisk] = useState('d1')
-  const [color, setColor] = useState('')
+  const [color, setColor] = useState(null)
   const [photoCount, SetPhotoCount] = useState(null);
   const [colors, setColors] = useState(null)
   const [currentLinkDisk, setCurrentLinkDisk] = useState('');
@@ -23,36 +23,39 @@ function Configurator() {
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
 
-
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
   }
 
-  const handlerChoose = (e, brand, model, currentColor) => {
-    setBrand(brand);
-    setModel(model);
-    setColor(currentColor);
-    SetPhotoCount(cars[brand][model].photoCount);
-    setColors(cars[brand][model].color);
-    setDisks(cars[brand][model].disks);
-    setSmallDisks(cars[brand][model].linkDisksSmall);
-    setBigDisks(cars[brand][model].linkDisksBig);
-    setNamesDisks(cars[brand][model].nameDisks);
-    setCurrentLinkDisk(bigDisks[0]);
-    setCurrentNameDisk(namesDisks[0]);
-    if (brand && model) {
-      setChooseCar(!chooseCar)
+  useEffect(() => {
+    if (brand) {
+      SetPhotoCount(cars[brand][model].photoCount);
+      setColors(cars[brand][model].color);
+      setDisks(cars[brand][model].disks);
+      setSmallDisks(cars[brand][model].linkDisksSmall);
+      setBigDisks(cars[brand][model].linkDisksBig);
+      setNamesDisks(cars[brand][model].nameDisks);
+
     }
-  }
+  }, [brand])
+  console.log(1);
+  useEffect(() => {
+    if (bigDisks) {
+      // console.log('---->');
+      setCurrentLinkDisk(bigDisks[0]);
+      setCurrentNameDisk(namesDisks[0]);
+      setChooseCar(!chooseCar);
+    }
+  }, [bigDisks])
 
-  function handerChooseCar(e) {
-    const choosenBrand = e.target.value
-    setBrand(`${choosenBrand}`)
-  }
-
-  function handlerChooseModel(e) {
-    const choosenModel = e.target.value
-    setModel(`${choosenModel}`)
+  const handlerChoose = async (e, currentBrand, currentModel, currentColor) => {
+    if (!currentBrand) {
+      setChooseCar(pre => !pre);
+      setDisk('d1');
+    }
+    setBrand(currentBrand);
+    setModel(currentModel);
+    setColor(currentColor);
   }
 
   function handlerColor(value) {
@@ -74,8 +77,6 @@ function Configurator() {
     setCurrentLinkDisk(linkImageDisk);
     setCurrentNameDisk(nameDisk);
   }
-
-  console.log(currentNameDisk);
 
 
   return (
@@ -124,7 +125,7 @@ function Configurator() {
               </li>
               <li>
                 <div className="choose-car-button">
-                  <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, brand, model)}>Choose anorther car</button>
+                  <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
                 </div>
               </li>
               <li>
