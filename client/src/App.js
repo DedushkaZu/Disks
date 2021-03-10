@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import Configurator from './components/Configurator/Configurator';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { checkAuth } from './redux/actionCreators/user';
 import UserZone from './components/UserZone/UserZone';
 
