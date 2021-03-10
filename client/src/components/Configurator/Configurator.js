@@ -38,7 +38,7 @@ function Configurator() {
 
     }
   }, [brand])
-  console.log(1);
+
   useEffect(() => {
     if (bigDisks) {
       // console.log('---->');
