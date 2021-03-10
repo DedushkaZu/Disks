@@ -1,8 +1,15 @@
 .configurator-wrapper{
   width: 90vw;
+  position: relative;
+}
+
+.options-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.save-car-button-container{
+height: 100px;
 }
 
 .close-button-container{
@@ -13,8 +20,9 @@
 }
 
 .choose-car-button{
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: .5vw;
 }
 
 .choose-car-button button{
@@ -26,12 +34,12 @@
   color: #333;
   padding: 5px;
   border: none;
-  background: #e7e9ec;
+  background: white;
   transition: color ease .5s, background ease .5s;
 }
 
 .choose-car-button button:hover{
-  color: #e7e9ec;
+  color: white;
   background: #333;
   border-radius: 5px;
   box-shadow: 0 0 5px #e7e9ec,
