@@ -35,7 +35,6 @@ function Configurator() {
       setSmallDisks(cars[brand][model].linkDisksSmall);
       setBigDisks(cars[brand][model].linkDisksBig);
       setNamesDisks(cars[brand][model].nameDisks);
-
     }
   }, [brand])
 
@@ -50,13 +49,12 @@ function Configurator() {
   
   const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
-      setChooseCar(!chooseCar);
-      console.log('---->', chooseCar);
       setDisk('d1');
     }
     setBrand(currentBrand);
     setModel(currentModel);
     setColor(currentColor);
+    setBigDisks(null);
   }
 
   function handlerColor(value) {
@@ -226,7 +224,7 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
-                <button onClick={(e) => handlerChoose(e, 'b', 'z')}>Z4</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Z4</button>
               </div>
             </div>
           </div>

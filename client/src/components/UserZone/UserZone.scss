@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
+.configurator-wrapper{
+  width: 90vw;
+}
+
 * {
   box-sizing: border-box;
   font-weight: normal;
@@ -59,6 +63,24 @@ h1 {
             }
         }
     }
+}
+
+
+.button-delete-disk {
+  background-color: #313131;
+  width: 10wv;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.button-delete-disk:hover {
+  background-color: darkred;
+}
+
+.content-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 // custom

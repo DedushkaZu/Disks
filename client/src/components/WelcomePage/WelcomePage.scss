@@ -34,15 +34,15 @@
     }
 
     .slide1 {
-      background-image: url(https://storge.pic2.me/c/1360x800/761/59a96e758504f.jpg);
+      background-image: url(https://images3.alphacoders.com/562/562678.jpg);
       animation: 20s slides-set-1 -0.1s infinite;
     }
     .slide2 {
-      background-image: url(https://images.wallpaperscraft.ru/image/porsche_911_carrera_rsr_porsche_sportkar_139640_3840x2160.jpg);
+      background-image: url(https://www.hdcarwallpapers.com/walls/bmw_740li_xdrive_m_sport_black_fire_edition_2018_4k-HD.jpg);
       animation: 20s slides-set-2 -0.1s infinite;
     }
     .slide3 {
-      background-image: url(https://images.wallpaperscraft.ru/image/lamborghini_centenario_vid_sboku_skorost_110265_3840x2160.jpg);
+      background-image: url(https://images.wallpaperscraft.com/image/mercedes_car_wheel_182357_3840x2160.jpg);
       animation: 20s slides-set-3 -0.1s infinite;
     }
 
@@ -97,17 +97,17 @@
     }
 
     .slide1 {
-      background-image: linear-gradient(to bottom, rgba(200,200,75,0.25) 0, #333 100%), url(https://storge.pic2.me/c/1360x800/761/59a96e758504f.jpg);
+      background-image: linear-gradient(to bottom, rgba(231, 233, 236, 0.25) 0, rgba(51, 51, 51, 0.5) 100%), url(https://images3.alphacoders.com/562/562678.jpg);
       // background-image: url(../img/slideshow/hero-1.jpg);
       animation: 20s slides-set-1 -0.2s infinite;
     }
     .slide2 {
-      background-image: linear-gradient(to bottom, rgba(200,200,75,0.25) 0, rgba(200,75,75,0.5) 100%), url(https://images.wallpaperscraft.ru/image/porsche_911_carrera_rsr_porsche_sportkar_139640_3840x2160.jpg);
+      background-image: linear-gradient(to bottom, rgba(231, 233, 236, 0.25) 0, rgba(51, 51, 51, 0.5) 100%), url(https://www.hdcarwallpapers.com/walls/bmw_740li_xdrive_m_sport_black_fire_edition_2018_4k-HD.jpg);
       // background-image: url(../img/slideshow/hero-2.jpg);
       animation: 20s slides-set-2 -0.2s infinite;
     }
     .slide3 {
-      background-image: linear-gradient(to bottom, rgba(200,200,75,0.25) 0, rgba(200,75,75,0.5) 100%), url(https://images.wallpaperscraft.ru/image/lamborghini_centenario_vid_sboku_skorost_110265_3840x2160.jpg);
+      background-image: linear-gradient(to bottom, rgba(231, 233, 236, 0.25) 0, rgba(51, 51, 51, 0.5) 100%), url(https://images.wallpaperscraft.com/image/mercedes_car_wheel_182357_3840x2160.jpg);
       // background-image: url(../img/slideshow/hero-3.jpg);
       animation: 20s slides-set-3 -0.2s infinite;
     }
