@@ -48,9 +48,9 @@ function Configurator() {
     }
   }, [bigDisks])
 
-  const handlerChoose = async (e, currentBrand, currentModel, currentColor) => {
+  const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
-      setChooseCar(pre => !pre);
+      setChooseCar(!chooseCar);
       setDisk('d1');
     }
     setBrand(currentBrand);
@@ -143,7 +143,7 @@ function Configurator() {
                       </li>
                       <li>
                         <div className="choose-car-button">
-                          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, brand, model)}>Choose anorther car</button>
+                          <button className="btn btn-light btn-sm" onClick={(e) => handlerChoose(e, null, model)}>Choose anorther car</button>
                         </div>
                       </li>
                       <li>
@@ -205,7 +205,7 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
-                <button onClick={(e) => handlerChoose(e, 'b', 'z')}>Z4</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Z4</button>
               </div>
             </div>
           </div>
