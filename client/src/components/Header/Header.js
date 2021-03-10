@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../../redux/actionCreators/user';
@@ -24,7 +24,7 @@ function Header() {
       </div>
 
       <div className="project-wrapper">
-        <span>NORMAL DISKS</span>
+        <p>Shining Text Animation Effects</p>
       </div>
       <nav className="nav-bar">
         {auth ?
