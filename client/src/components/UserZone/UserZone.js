@@ -38,7 +38,7 @@ const UserZone = () => {
       <div>
       </div>
       {configurator ?
-        <div>
+        <div className='configurator-wrapper'>
           <React360 dir={currentConfig.path} numImages={currentConfig.numImages} />
           <button onClick={handlerCloseConfigurator} className='btn btn-danger'>Закрыть</button>
         </div>

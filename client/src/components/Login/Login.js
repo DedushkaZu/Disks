@@ -1,5 +1,5 @@
 import React from 'react'
-import './Login.css'
+import './Login.scss'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
@@ -22,22 +22,22 @@ function Login() {
     // setPassword('');
   };
   if (auth) {
-    // window.localStorage.setItem('auth', auth);
     history.push('/');
   }
 
   return (
-    <div className="form-wrapper">
+    <div class="login-box">
+      <h2>Login</h2>
       <form onSubmit={(e) => { handlerLogin(e, email, password) }}>
-        <div className="mb-3">
-          <input onChange={(e) => { setEmail(e.target.value) }} placeholder="email" type="email" className="form-control" required />
+        <div class="user-box">
+          <input onChange={(e) => { setEmail(e.target.value) }} type="email" name="email" required />
+          <label>Email</label>
         </div>
-        <div className="mb-3">
-          <input onChange={(e) => { setPassword(e.target.value) }} placeholder="password" type="text" className="form-control" required />
+        <div class="user-box">
+          <input onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" required />
+          <label>Password</label>
         </div>
-        <div className="mb-3">
-          <button className="btn btn-light btn-sm">Login</button>
-        </div>
+        <button className='btn'>Submit</button>
       </form>
     </div>
   )
