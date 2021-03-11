@@ -1,10 +1,12 @@
 import './Register.css';
 import { useHistory } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { registrationUser } from '../../redux/actionCreators/user';
 import { useDispatch, useSelector } from 'react-redux';
+import { writeWrongData } from '../../redux/actionCreators/error';
 
 function Register() {
+  const wrongData = useSelector(state => state.wrongAuthData);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +21,13 @@ function Register() {
     dispatch(registrationUser(username, email, password));
     // window.localStorage.setItem('auth', auth);
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(writeWrongData(false))
+    }
+  }, []);
+
   if (auth) {
     history.push('/');
   }
@@ -43,6 +52,10 @@ function Register() {
         </div>
         <button className='btn'>Submit</button>
       </form>
+      {wrongData ?
+        <h4>Пользователь с такой почтой уже зарегистрирован</h4> :
+        <></>
+      }
     </div>
   )
 }
