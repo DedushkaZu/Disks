@@ -8,9 +8,9 @@ import { useHistory } from 'react-router-dom';
 const UserZone = () => {
   const [currentConfig, setCurrentConfig] = useState({});
   const disks = useSelector(state => state.basket);
-  // const configurator = useSelector(state => state.config);
-  const [configurator, setConfigurator] = useState(false);
   const userID = window.localStorage.getItem('userID');
+  const [configurator, setConfigurator] = useState(false);
+  
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -24,10 +24,10 @@ const UserZone = () => {
     dispatch(loadBasket(userID))
   }, [])
 
-  const handlerDelete = (e, path, userID) => {
+  const handlerDelete = (e, path) => {
     e.stopPropagation();
-    dispatch(deleteItemFromBasketInDb(path, userID));
-    console.log(userID);
+    dispatch(deleteItemFromBasketInDb(path));
+
   };
 
   const handlerConfig = async (path, numImages) => {
@@ -66,7 +66,7 @@ const UserZone = () => {
                   <p>Нажмите для просмотра конфигурации</p>
                 </div>
                 <div className="content-container">
-                  <button onClick={(e) => { handlerDelete(e, el.path, userID) }} className="button-delete-disk"><p>Удалить</p></button>
+                  <button onClick={(e) => { handlerDelete(e, el.path) }} className="button-delete-disk"><p>Удалить</p></button>
                 </div>
               </div>
             </div>
