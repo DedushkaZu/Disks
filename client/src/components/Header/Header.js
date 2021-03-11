@@ -16,7 +16,7 @@ function Header() {
   return (
     <header className="App-header">
       <div className="logo-wrapper">
-        <Link to="/" >
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <img src={`../../logo/logo${index}.svg`} className="App-logo" alt="logo" />
           {/* <svg id="Layer_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(1 1)"><g>
@@ -37,29 +37,29 @@ function Header() {
         {auth ?
           <>
             <div className='beauty'>
-              <Link className="nav-bar-link" to="/configurator" >
+              <Link to="/configurator" style={{ textDecoration: 'none' }} >
                 <p className="nav-bar-item">Конфигуратор</p>
               </Link>
             </div>
             <div className='beauty'>
-              <Link className="nav-bar-link" to="/userzone" >
+              <Link to="/userzone" style={{ textDecoration: 'none' }} >
                 <p className="nav-bar-item">Мои диски</p>
               </Link>
             </div>
             <div className='beauty'>
-              <Link className="nav-bar-link" to="/" >
+              <Link to="/" style={{ textDecoration: 'none' }} >
                 <p onClick={handlerLogout} className="nav-bar-item">Выйти</p>
               </Link>
             </div>
           </> :
           <>
             <div className='beauty'>
-              <Link className="nav-bar-link" to="/login" >
+              <Link to="/login" style={{ textDecoration: 'none' }} >
                 <p className="nav-bar-item">Войти</p>
               </Link>
             </div>
             <div className='beauty'>
-              <Link className="nav-bar-link" to="/register" >
+              <Link to="/register" style={{ textDecoration: 'none' }} >
                 <p className="nav-bar-item">Зарегистрироваться</p>
               </Link>
             </div>
