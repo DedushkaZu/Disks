@@ -24,7 +24,11 @@ function Header() {
       </div>
 
       <div className="project-wrapper">
+<<<<<<< HEAD
+        <p>НОРМАЛЬНЫЕ ДИСКИ</p>
+=======
         <span>НОРМАЛЬНЫЕ ДИСКИ</span>
+>>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
       </div>
       <nav className="nav-bar">
         {auth ?
@@ -48,12 +52,20 @@ function Header() {
           <>
             <div className='beauty'>
               <Link className="nav-bar-link" to="/login" >
+<<<<<<< HEAD
+                <p className="nav-bar-item">Логин</p>
+=======
                 <p className="nav-bar-item">Войти</p>
+>>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
               </Link>
             </div>
             <div className='beauty'>
               <Link className="nav-bar-link" to="/register" >
+<<<<<<< HEAD
+                <p className="nav-bar-item">Регистрация</p>
+=======
                 <p className="nav-bar-item">Зарегистрироваться</p>
+>>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
               </Link>
             </div>
           </>
