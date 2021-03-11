@@ -24,36 +24,36 @@ function Header() {
       </div>
 
       <div className="project-wrapper">
-        <p>Shining Text Animation Effects</p>
+        <span>НОРМАЛЬНЫЕ ДИСКИ</span>
       </div>
       <nav className="nav-bar">
         {auth ?
           <>
-            <div >
+            <div className='beauty'>
               <Link className="nav-bar-link" to="/configurator" >
                 <p className="nav-bar-item">Конфигуратор</p>
               </Link>
             </div>
-            <div >
+            <div className='beauty'>
               <Link className="nav-bar-link" to="/userzone" >
                 <p className="nav-bar-item">Мои диски</p>
               </Link>
             </div>
-            <div >
+            <div className='beauty'>
               <Link className="nav-bar-link" to="/" >
                 <p onClick={handlerLogout} className="nav-bar-item">Выйти</p>
               </Link>
             </div>
           </> :
           <>
-            <div >
+            <div className='beauty'>
               <Link className="nav-bar-link" to="/login" >
-                <p className="nav-bar-item">login</p>
+                <p className="nav-bar-item">Войти</p>
               </Link>
             </div>
-            <div >
+            <div className='beauty'>
               <Link className="nav-bar-link" to="/register" >
-                <p className="nav-bar-item">register</p>
+                <p className="nav-bar-item">Зарегистрироваться</p>
               </Link>
             </div>
           </>

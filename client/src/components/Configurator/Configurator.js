@@ -3,7 +3,7 @@ import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveConfig } from '../../redux/actionCreators/user';
-
+import { useHistory } from 'react-router-dom';
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -22,6 +22,13 @@ function Configurator() {
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
   const dispatch = useDispatch();
+  // const history = useHistory();
+
+  // const name = window.localStorage.getItem('name');
+
+  // if (!name) {
+  //   history.push('/')
+  // }
 
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
