@@ -2,13 +2,8 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-<<<<<<< HEAD
-import { deleteItemFromBasketInDb, saveConfig } from '../../redux/actionCreators/user';
-
-=======
 import { saveConfig } from '../../redux/actionCreators/user';
 import { useHistory } from 'react-router-dom';
->>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
