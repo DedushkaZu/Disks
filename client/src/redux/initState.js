@@ -36,6 +36,16 @@ const initState = {
         color: ['b', 'r'],
         photoCount: 23
       }
+    },
+    l: {
+      n: {
+        disks: ['d1'],
+        linkDisksSmall: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-small.png'],
+        linkDisksBig: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-big.png'],
+        nameDisks: ['DOTZ LAGUNASECA DARK'],
+        color: ['g'],
+        photoCount: 24
+      }
     }
   },
   wrongAuthData: false,
