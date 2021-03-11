@@ -19,6 +19,7 @@
   height: 9vh;
   pointer-events: none;
   width: 10vw;
+  filter: invert(91%) sepia(8%) saturate(68%) hue-rotate(176deg) brightness(105%) contrast(88%);
 }
 
 .project-wrapper{
@@ -43,8 +44,9 @@
   margin-bottom: 1vh;
 }
 
-.nav-bar-item:hover {
-  color: rgb(255, 255, 255);
+.beauty:hover {
+  border-bottom: 1px solid #e7e9ec  ;
+
 }
 
 .nav-bar-link{
