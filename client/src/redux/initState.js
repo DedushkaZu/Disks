@@ -40,9 +40,9 @@ const initState = {
     l: {
       n: {
         disks: ['d1'],
-        linkDisksSmall: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-small.png'],
-        linkDisksBig: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-big.png'],
-        nameDisks: ['DOTZ LAGUNASECA DARK'],
+        linkDisksSmall: ['discs/l-n-d1-DOTZ-4X4-PHARAO-DARK-small.png'],
+        linkDisksBig: ['discs/l-n-d1-DOTZ-4X4-PHARAO-DARK-big.png'],
+        nameDisks: ['DOTZ 4X4 PHARAO DARK'],
         color: ['g'],
         photoCount: 24
       }
