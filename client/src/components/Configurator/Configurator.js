@@ -144,7 +144,6 @@ function Configurator() {
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
-<<<<<<< HEAD
                               <div className="carousel-inner"> 
                               {
                                 disks && disks.map((el, index) => (
@@ -157,20 +156,6 @@ function Configurator() {
                                     </div>)
                                 ))
                               } 
-=======
-                              <div class="carousel-inner">
-                                {
-                                  disks && disks.map((el, index) => (
-                                    index ?
-                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
-                                        <img className="" src={smallDisks[index]} alt={`disk${index}`} />
-                                      </div>) :
-                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
-                                        <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`} />
-                                      </div>)
-                                  ))
-                                }
->>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
                               </div>
 
                               <a className="left carousel-control" href="#myCarousel" data-slide="prev">
