@@ -109,7 +109,7 @@ function Configurator() {
                 tapacStyle ?
                   (<div>
                     <li>
-                      <div><button className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
+                      <div><button  className="btn btn-light btn-sm tapac-style-btn" onClick={handlerTapacStyle}>Tapac style</button></div>
                     </li>
                   </div>
                   ) :
