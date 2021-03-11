@@ -36,6 +36,16 @@ const initState = {
         color: ['b', 'r'],
         photoCount: 23
       }
+    },
+    l: {
+      n: {
+        disks: ['d1'],
+        linkDisksSmall: ['discs/l-n-d1-DOTZ-4X4-PHARAO-DARK-small.png'],
+        linkDisksBig: ['discs/l-n-d1-DOTZ-4X4-PHARAO-DARK-big.png'],
+        nameDisks: ['DOTZ 4X4 PHARAO DARK'],
+        color: ['g'],
+        photoCount: 24
+      }
     }
   },
   wrongAuthData: false,

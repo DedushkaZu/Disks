@@ -216,7 +216,7 @@ function Configurator() {
             <div className="face face2">
               <div className="content">
                 <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Vesta</button>
-                <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Niva</button>
+                <button onClick={(e) => handlerChoose(e, 'l', 'n', 'g')}>Niva</button>
               </div>
             </div>
           </div>
