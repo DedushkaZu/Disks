@@ -15,13 +15,11 @@ function Login() {
   const auth = useSelector(state => state.auth);
   const error = useSelector(state => state.wrongAuthData);
 
-  // useEffect(() => {
-  //   if (auth) {
-  //     history.push('/');
-  //   } else {
-  //     dispatch(writeWrongData(false))
-  //   }
-  // }, []);
+  useEffect(() => {
+    return () => {
+      dispatch(writeWrongData(false))
+    }
+  }, []);
 
 
   console.log(error);
@@ -34,6 +32,9 @@ function Login() {
 
   };
 
+  if (auth) {
+    history.push('/');
+  }
 
   return (
     <div class="login-box">
