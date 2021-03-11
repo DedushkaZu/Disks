@@ -99,7 +99,7 @@ function Configurator() {
           <nav className="config-nav">
             <ul className="config-ul">
               <div className="save-car-button-cotainer">
-                <div className=""><button className="save-car-button" onClick={handlerSaveConfig}>Сохранить</button></div>
+                <div className=""><button className="save-car-button btn btn-light btn-sm" onClick={handlerSaveConfig}>Сохранить</button></div>
               </div>
               {
                 tapacStyle ?
