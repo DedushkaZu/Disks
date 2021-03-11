@@ -38,6 +38,7 @@ const initState = {
       }
     }
   },
+  wrongAuthData: false,
   basket: [],
   config: false,
 }
