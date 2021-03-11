@@ -29,11 +29,11 @@ const initState = {
     },
     b: {
       z: {
-        disks: ['d1'],
-        linkDisksSmall: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-small.png'],
-        linkDisksBig: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-big.png'],
-        nameDisks: ['DOTZ LAGUNASECA DARK'],
-        color: ['b'],
+        disks: ['d1', 'd2',],
+        linkDisksSmall: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-small.png', 'discs/b-z-d2-DOTZ-SUZUKA-BLAZE-small.png'],
+        linkDisksBig: ['discs/b-z-d1-DOTZ-LAGUNASECA-DARK-big.png', 'discs/b-z-d2-DOTZ-SUZUKA-BLAZE-big.png'],
+        nameDisks: ['DOTZ LAGUNASECA DARK', 'DOTZ SUZUKA BLAZE'],
+        color: ['b', 'r'],
         photoCount: 23
       }
     }
