@@ -90,7 +90,7 @@ router.post('/config', async (req, res) => {
     console.log(error);
     return res.sendStatus(445);
   }
-  // console.log(user);
+
   return res.status(200).json(user);
 });
 

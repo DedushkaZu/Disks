@@ -2,8 +2,13 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+<<<<<<< HEAD
 import { deleteItemFromBasketInDb, saveConfig } from '../../redux/actionCreators/user';
 
+=======
+import { saveConfig } from '../../redux/actionCreators/user';
+import { useHistory } from 'react-router-dom';
+>>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -24,6 +29,13 @@ function Configurator() {
 
 
   const dispatch = useDispatch();
+  // const history = useHistory();
+
+  // const name = window.localStorage.getItem('name');
+
+  // if (!name) {
+  //   history.push('/')
+  // }
 
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
@@ -47,7 +59,7 @@ function Configurator() {
       setChooseCar(!chooseCar);
     }
   }, [bigDisks])
-  
+
   const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
       setDisk('d1');
@@ -64,13 +76,14 @@ function Configurator() {
   }
 
 
-  const handlerSaveConfig = async () => {
-      dispatch(saveConfig({
-        path: `cars/${brand}/${model}/${disk}/${color}/`,
-        numImages: photoCount,
-        photo: currentLinkDisk,
-        name: currentNameDisk,
-      }));
+  const handlerSaveConfig = () => {
+    dispatch(saveConfig({
+      path: `cars/${brand}/${model}/${disk}/${color}/`,
+      numImages: photoCount,
+      photo: currentLinkDisk,
+      name: currentNameDisk,
+    }));
+
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
@@ -131,6 +144,7 @@ function Configurator() {
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
+<<<<<<< HEAD
                               <div className="carousel-inner"> 
                               {
                                 disks && disks.map((el, index) => (
@@ -143,6 +157,20 @@ function Configurator() {
                                     </div>)
                                 ))
                               } 
+=======
+                              <div class="carousel-inner">
+                                {
+                                  disks && disks.map((el, index) => (
+                                    index ?
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
+                                        <img className="" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>) :
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
+                                        <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>)
+                                  ))
+                                }
+>>>>>>> 6eccd3108a58a5c547dbc54a7f90ec2fe95c84a2
                               </div>
 
                               <a className="left carousel-control" href="#myCarousel" data-slide="prev">

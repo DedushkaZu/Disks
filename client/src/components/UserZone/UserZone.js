@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { loadBasket, deleteItemFromBasketInDb, changeConfigStatus } from '../../redux/actionCreators/user';
 import React360 from '../React360/React360'
+// import { useHistory } from 'react-router-dom';
 
 const UserZone = () => {
   const [currentConfig, setCurrentConfig] = useState({});
@@ -11,6 +12,13 @@ const UserZone = () => {
   const [configurator, setConfigurator] = useState(false);
   
   const dispatch = useDispatch();
+  // const history = useHistory();
+
+  // const name = window.localStorage.getItem('name');
+
+  // if (!name) {
+  //   history.push('/')
+  // }
 
   useEffect(() => {
     dispatch(loadBasket(userID))
