@@ -5,6 +5,7 @@ import { authReducer } from "./authReducer";
 import { carsReducer } from './carsReducer';
 import { basketReducer } from './basketReducer';
 import { statusReducer } from './statusReducer';
+import errorAuthReducer from "./errorAuthReducer";
 
 const rootReducer = combineReducers({
   loader: loadReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   cars: carsReducer,
   basket: basketReducer,
   config: statusReducer,
+  wrongAuthData: errorAuthReducer,
 })
 
 export default rootReducer
