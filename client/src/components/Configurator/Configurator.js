@@ -6,6 +6,7 @@ import { saveConfig } from '../../redux/actionCreators/user';
 import { useHistory } from 'react-router-dom';
 
 function Configurator() {
+  const succesfull = useSelector(state => state.wrongAuthData)
   const cars = useSelector(state => state.cars);
   const [tapacStyle, setTapacStyle] = useState(false)
   const [chooseCar, setChooseCar] = useState(false);
@@ -21,7 +22,6 @@ function Configurator() {
   const [smallDisks, setSmallDisks] = useState(null);
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
-
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -78,7 +78,6 @@ function Configurator() {
       photo: currentLinkDisk,
       name: currentNameDisk,
     }));
-
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
@@ -91,6 +90,11 @@ function Configurator() {
   return (
     chooseCar ? (
       <div className="configurator-wrapper">
+        {
+          succesfull ?
+            <h1>Сохранение прошло успешно</h1> :
+            <></>
+        }
         <div className="options-container">
           <input type="checkbox" id="menu" />
           <label htmlFor="menu" className="icon">
