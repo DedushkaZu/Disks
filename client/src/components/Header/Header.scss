@@ -2,13 +2,10 @@
   max-height: 10vh;
   display: flex;
   justify-content: space-between;
-  /* margin: 0 2vw ; */
   padding: 0 2vw;
   align-items: center;
   background-color: #333;
   border-bottom: 2px solid #e7e9ec;
-  // box-shadow: 0 10px 10px 10px rgba(51, 51, 51, 0.8);
-  /* flex-wrap: wrap; */
 }
 
 .logo-wrapper{
@@ -16,9 +13,9 @@
 }
 
 .App-logo {
-  height: 9vh;
+  height: 7vh;
   pointer-events: none;
-  width: 10vw;
+  filter: invert(91%) sepia(8%) saturate(68%) hue-rotate(176deg) brightness(105%) contrast(88%);
 }
 
 .project-wrapper{
@@ -38,26 +35,22 @@
 .nav-bar-item{
   color: #e7e9ec;
   text-decoration: none;
+}
+
+.beauty{
   margin-left: 1vw;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
-.nav-bar-item:hover {
-  color: rgb(255, 255, 255);
-}
-
-.nav-bar-link{
-  text-decoration: none;
-}
-.nav-bar-link:hover{
-  text-decoration: underline #e7e9ec;
+.beauty:hover{
+  border-bottom: 1px solid #e7e9ec;
 }
 
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 5s linear;
+    animation: App-logo-spin infinite 15s linear;
   }
 }
 
