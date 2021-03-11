@@ -117,8 +117,9 @@ const takeBasketFromDb = (basket) => {
   }
 };
 
-const deleteItemFromBasketInDb = (path, userID) => async (dispatch, getState) => {
+const deleteItemFromBasketInDb = (path) => async (dispatch, getState) => {
   dispatch(addLoader());
+  const userID = window.localStorage.getItem('userID');
   await fetch(`http://localhost:3001/user/basket`, {
     method: 'DELETE',
     headers: {
