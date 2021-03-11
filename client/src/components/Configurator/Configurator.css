@@ -230,6 +230,7 @@ label.icon {
   position: relative;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .choose-container .card{
@@ -310,6 +311,13 @@ label.icon {
 .choose-container .card .face.face2 .content p{
   margin: 0;
   padding: 0;
+}
+
+.choose-container .card .face.face2 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .choose-container .card .face.face2 .content button{
