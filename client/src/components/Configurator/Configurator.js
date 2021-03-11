@@ -3,7 +3,7 @@ import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveConfig } from '../../redux/actionCreators/user';
-
+import { useHistory } from 'react-router-dom';
 
 function Configurator() {
   const cars = useSelector(state => state.cars);
@@ -22,6 +22,13 @@ function Configurator() {
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
   const dispatch = useDispatch();
+  // const history = useHistory();
+
+  // const name = window.localStorage.getItem('name');
+
+  // if (!name) {
+  //   history.push('/')
+  // }
 
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
@@ -46,7 +53,7 @@ function Configurator() {
       setChooseCar(!chooseCar);
     }
   }, [bigDisks])
-  
+
   const handlerChoose = (e, currentBrand, currentModel, currentColor) => {
     if (!currentBrand) {
       setDisk('d1');
@@ -68,8 +75,9 @@ function Configurator() {
       path: `cars/${brand}/${model}/${disk}/${color}/`,
       numImages: photoCount,
       photo: currentLinkDisk,
-      name: currentNameDisk
+      name: currentNameDisk,
     }));
+
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
@@ -130,18 +138,18 @@ function Configurator() {
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
-                              <div class="carousel-inner"> 
-                              {
-                                disks && disks.map((el, index) => (
-                                  index ?
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
-                                      <img className="" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>):
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
-                                      <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>)
-                                ))
-                              } 
+                              <div class="carousel-inner">
+                                {
+                                  disks && disks.map((el, index) => (
+                                    index ?
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
+                                        <img className="" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>) :
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
+                                        <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>)
+                                  ))
+                                }
                               </div>
 
                               <a class="left carousel-control" href="#myCarousel" data-slide="prev">
