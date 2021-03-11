@@ -24,13 +24,13 @@ function Configurator() {
 
 
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
-  // const name = window.localStorage.getItem('name');
+  const name = window.localStorage.getItem('name');
 
-  // if (!name) {
-  //   history.push('/')
-  // }
+  if (!name) {
+    history.push('/')
+  }
 
   const handlerTapacStyle = () => {
     setTapacStyle(!tapacStyle)
