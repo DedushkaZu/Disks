@@ -2,7 +2,7 @@ import './Configurator.css';
 import React360 from '../React360/React360'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { saveConfig } from '../../redux/actionCreators/user';
+import { deleteItemFromBasketInDb, saveConfig } from '../../redux/actionCreators/user';
 
 
 function Configurator() {
@@ -21,6 +21,8 @@ function Configurator() {
   const [smallDisks, setSmallDisks] = useState(null);
   const [bigDisks, setBigDisks] = useState(null);
   const [namesDisks, setNamesDisks] = useState(null);
+
+
   const dispatch = useDispatch();
 
   const handlerTapacStyle = () => {
@@ -40,7 +42,6 @@ function Configurator() {
 
   useEffect(() => {
     if (bigDisks) {
-      console.log('---->');
       setCurrentLinkDisk(bigDisks[0]);
       setCurrentNameDisk(namesDisks[0]);
       setChooseCar(!chooseCar);
@@ -63,13 +64,13 @@ function Configurator() {
   }
 
 
-  const handlerSaveConfig = () => {
-    dispatch(saveConfig({
-      path: `cars/${brand}/${model}/${disk}/${color}/`,
-      numImages: photoCount,
-      photo: currentLinkDisk,
-      name: currentNameDisk
-    }));
+  const handlerSaveConfig = async () => {
+      dispatch(saveConfig({
+        path: `cars/${brand}/${model}/${disk}/${color}/`,
+        numImages: photoCount,
+        photo: currentLinkDisk,
+        name: currentNameDisk,
+      }));
   };
 
   function handlerDisk(value, linkImageDisk, nameDisk) {
@@ -88,10 +89,10 @@ function Configurator() {
             <div className="menu"></div>
           </label>
           <nav className="config-nav">
-            <div className="save-car-button-cotainer">
-              <div className="save-car-button"><button className="btn btn-light btn-sm" onClick={handlerSaveConfig}>dfgdfgdfgdfgdfgdfg</button></div>
-            </div>
             <ul className="config-ul">
+              <div className="save-car-button-cotainer">
+                <div className=""><button className="save-car-button" onClick={handlerSaveConfig}>Сохранить</button></div>
+              </div>
               {
                 tapacStyle ?
                   (<div>
@@ -122,15 +123,15 @@ function Configurator() {
                       </li>
                       <li>
                         <div className="disks">
-                          <div class="carousel-container">
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                              <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <div className="carousel-container">
+                            <div id="myCarousel" className="carousel slide" data-ride="carousel">
+                              <ol className="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
-                              <div class="carousel-inner"> 
+                              <div className="carousel-inner"> 
                               {
                                 disks && disks.map((el, index) => (
                                   index ?
@@ -144,13 +145,13 @@ function Configurator() {
                               } 
                               </div>
 
-                              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
+                              <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span className="glyphicon glyphicon-chevron-left"></span>
+                                <span className="sr-only">Previous</span>
                               </a>
-                              <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
+                              <a className="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span className="glyphicon glyphicon-chevron-right"></span>
+                                <span className="sr-only">Next</span>
                               </a>
                             </div>
                           </div>

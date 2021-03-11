@@ -9,7 +9,12 @@
 }
 
 .save-car-button-container{
-height: 100px;
+  position: relative;
+}
+.save-car-button{
+  position: absolute;
+  top: 15px;
+  right: 5px;
 }
 
 .close-button-container{
@@ -107,13 +112,15 @@ input#menu {
   display: none;
 }
 
+
+
 .icon {
   background: #FFF;
   cursor: pointer;
   display: block;
-  height: 24px;
+  height: 60px;
   padding: 16px;
-  width: 24px;
+  width: 50px;
 }
 
 label.icon {
