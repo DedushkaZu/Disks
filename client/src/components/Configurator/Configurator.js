@@ -194,6 +194,24 @@ function Configurator() {
             <div className="face face2">
               <div className="content">
                 <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Golf</button>
+                <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Touareg</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://pngimg.com/uploads/lada/lada_PNG95.png" alt="brand1" />
+                </div>
+                <br />
+                <h3>Lada</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Vesta</button>
+                <button onClick={(e) => handlerChoose(e, 'v', 'g', 'g')}>Niva</button>
               </div>
             </div>
           </div>
@@ -208,7 +226,9 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'm', 'e', 'b')}>S-classe</button>
                 <button onClick={(e) => handlerChoose(e, 'm', 'e', 'b')}>E-classe</button>
+                <button onClick={(e) => handlerChoose(e, 'm', 'e', 'b')}>G-classe</button>
               </div>
             </div>
           </div>
@@ -223,7 +243,43 @@ function Configurator() {
             </div>
             <div className="face face2">
               <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>M8 Coupe</button>
                 <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Z4</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>3</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="brand3" />
+                </div>
+                <h3>Tesla</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Model 3</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Cybertruck</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Model S</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/7/7f/Chevrolet_new_logo.png/1200px-Chevrolet_new_logo.png" alt="brand3" />
+                </div>
+                <br />
+                <h3>Chevrolet</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Tahoe </button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Camaro</button>
               </div>
             </div>
           </div>
