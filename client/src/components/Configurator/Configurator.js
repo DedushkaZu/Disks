@@ -173,7 +173,7 @@ function Configurator() {
         </div>
         {
           tapacStyle ?
-            <React360 dir={`cars/T/v/g/d1/o/`} numImages={23} /> :
+            <React360 dir={`cars/T/v/g/d1/o/`} numImages={24} /> :
             <React360 dir={`cars/${brand}/${model}/${disk}/${color}/`} numImages={photoCount} />
         }
         <div className="choose-car-button">
