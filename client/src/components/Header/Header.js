@@ -24,7 +24,7 @@ function Header() {
       </div>
 
       <div className="project-wrapper">
-        <p>Shining Text Animation Effects</p>
+        <span>НОРМАЛЬНЫЕ ДИСКИ</span>
       </div>
       <nav className="nav-bar">
         {auth ?
