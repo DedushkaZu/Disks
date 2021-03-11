@@ -1,7 +1,7 @@
 import { CHECK_AUTH, PUSH_IN_USERBASKET, TAKE_BASKET_FROM_DB } from '../types/user';
 import { CONFIG_STATUS } from '../types/status';
 import { addLoader, removeLoader } from '../actionCreators/loader';
-
+import { writeWrongData } from './error';
 
 const registrationUser = (username, email, password) => async (dispatch, getState) => {
   dispatch(addLoader());
@@ -14,7 +14,7 @@ const registrationUser = (username, email, password) => async (dispatch, getStat
     body: JSON.stringify({ username, email, password }),
   });
   if (response.status !== 200) {
-    alert('Данный логин или email уже используется')
+    dispatch(writeWrongData(true));
   } else {
     const user = await response.json();
     dispatch(checkAuth(true));
@@ -35,7 +35,7 @@ const loginUser = (email, password) => async (dispatch, getState) => {
     body: JSON.stringify({ email, password }),
   });
   if (response.status !== 200) {
-    alert('Неверный логин или пароль');
+    dispatch(writeWrongData(true));
   } else {
     const user = await response.json();
     dispatch(checkAuth(true));

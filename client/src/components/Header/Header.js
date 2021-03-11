@@ -65,8 +65,8 @@ function Header() {
             </div>
           </>
         }
-      </nav>
-    </header>
+      </nav >
+    </header >
   )
 }
 

@@ -139,18 +139,18 @@ function Configurator() {
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                               </ol>
 
-                              <div className="carousel-inner"> 
-                              {
-                                disks && disks.map((el, index) => (
-                                  index ?
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
-                                      <img className="" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>):
-                                    (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
-                                      <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`}/>
-                                    </div>)
-                                ))
-                              } 
+                              <div className="carousel-inner">
+                                {
+                                  disks && disks.map((el, index) => (
+                                    index ?
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item ">
+                                        <img className="" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>) :
+                                      (<div key={index} onClick={() => handlerDisk(index + 1, bigDisks[index], namesDisks[index])} className="item active ">
+                                        <img className="sm-disk-img" src={smallDisks[index]} alt={`disk${index}`} />
+                                      </div>)
+                                  ))
+                                }
                               </div>
 
                               <a className="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -281,6 +281,57 @@ function Configurator() {
               <div className="content">
                 <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Tahoe </button>
                 <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Camaro</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/c0/SkodaLogo.png/166px-SkodaLogo.png" alt="brand3" />
+                </div>
+                <h3>Škoda</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Octavia </button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Rapid</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://автолого.рф/wp-content/uploads/kia-symbol-2560x1440.png" alt="brand3" />
+                </div>
+                <br />
+                <h3>KIA</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Rio </button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Cerato</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Ceed</button>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="face face1">
+              <div className="content">
+                <div className="img-container">
+                  <img src="https://upload.wikimedia.org/wikipedia/ru/archive/1/17/20090512213331%21Mazda_Logo.png" alt="brand3" />
+                </div>
+                <h3>Mazda</h3>
+              </div>
+            </div>
+            <div className="face face2">
+              <div className="content">
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>Mazda 6</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>CX-5</button>
+                <button onClick={(e) => handlerChoose(e, 'b', 'z', 'b')}>CX-30</button>
               </div>
             </div>
           </div>
