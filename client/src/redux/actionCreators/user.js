@@ -21,7 +21,9 @@ const registrationUser = (username, email, password) => async (dispatch, getStat
     window.localStorage.setItem('userID', user._id);
     window.localStorage.setItem('name', user.username)
   }
-  dispatch(removeLoader());
+  setTimeout(() => {
+    dispatch(removeLoader());
+  }, 1000)
 }
 
 const loginUser = (email, password) => async (dispatch, getState) => {
@@ -42,7 +44,9 @@ const loginUser = (email, password) => async (dispatch, getState) => {
     window.localStorage.setItem('userID', user._id);
     window.localStorage.setItem('name', user.username)
   }
-  dispatch(removeLoader());
+  setTimeout(() => {
+    dispatch(removeLoader());
+  }, 1000)
 };
 
 const logoutUser = () => async (dispatch, getState) => {
