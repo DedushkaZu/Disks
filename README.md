@@ -29,3 +29,9 @@ ReactJS приложение, позволяющее пользователю в
 ![Снимок экрана от 2021-03-15 17-41-09](https://user-images.githubusercontent.com/75562442/111171114-b0fede80-85b5-11eb-9d78-c309b7c52c38.png)
 ![Снимок экрана от 2021-03-15 17-41-15](https://user-images.githubusercontent.com/75562442/111171127-b2c8a200-85b5-11eb-9a0f-fdd232258b60.png)
 ![Снимок экрана от 2021-03-15 17-41-21](https://user-images.githubusercontent.com/75562442/111171147-b4926580-85b5-11eb-919e-8f505eff61a6.png)
+
+## Личный кабинет
+Вы сможете сохранить конфигурацию и в любой момент вернуться к ней в личном кабинете по кнопки **Мои диски**
+![Снимок экрана от 2021-03-15 17-45-56](https://user-images.githubusercontent.com/75562442/111171836-57e37a80-85b6-11eb-8007-ccc4d771ec11.png)
+![Снимок экрана от 2021-03-15 17-46-03](https://user-images.githubusercontent.com/75562442/111171849-59ad3e00-85b6-11eb-8af8-8737e4fae058.png)
+![Снимок экрана от 2021-03-15 17-46-05](https://user-images.githubusercontent.com/75562442/111171851-59ad3e00-85b6-11eb-9f3c-789ab5a5746c.png)
