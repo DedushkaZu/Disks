@@ -4,11 +4,11 @@
   "description": "ReactJS приложение, позволяющее пользователю выбрать диски на свой автомобиль",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./server && npm i && npm start",
+    "build": "cd ./client && yarn && yarn run build"
   },
   "repository": {
-    "start": "cd ./server && npm i && npm start",
-    "build": "cd ./client && yarn && yarn run build",
     "type": "git",
     "url": "git+https://github.com/DedushkaZu/diski.git"
   },
