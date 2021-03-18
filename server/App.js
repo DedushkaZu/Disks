@@ -50,7 +50,7 @@ app.get('*', function (req, res) {
 
 app.listen(PORT, () => {
   console.log('server has been started');
-  connect(`mongodb+srv://${DB_NAME}:${DB_PASSWORD}@discs.v8j1k.mongodb.net/diski`, {
+  connect(process.env.mognoURL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
