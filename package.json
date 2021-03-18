@@ -1,0 +1,22 @@
+{
+  "name": "diski",
+  "version": "1.0.0",
+  "description": "ReactJS приложение, позволяющее пользователю выбрать диски на свой автомобиль",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "start": "cd ./server && npm i && npm start",
+    "build": "cd ./client && yarn && yarn run build",
+    "type": "git",
+    "url": "git+https://github.com/DedushkaZu/diski.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DedushkaZu/diski/issues"
+  },
+  "homepage": "https://github.com/DedushkaZu/diski#readme"
+}
