@@ -44,6 +44,10 @@ app.use(session({
 app.use('/car', carRouter);
 app.use('/user', userRouter);
 
+app.get('*', function (req, res) {
+  res.sendFile(path.join(process.env.PWD, '../client', 'build', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log('server has been started');
   connect(`mongodb+srv://${DB_NAME}:${DB_PASSWORD}@discs.v8j1k.mongodb.net/diski`, {
