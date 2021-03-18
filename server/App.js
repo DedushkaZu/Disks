@@ -15,6 +15,7 @@ const app = express();
 const PORT = process.env.PORT ?? 3001;
 const DB_NAME = process.env.DB_NAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
+const MONGO_URL = process.env.MONGO_URL;
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -50,7 +51,7 @@ app.get('*', function (req, res) {
 
 app.listen(PORT, () => {
   console.log('server has been started');
-  connect(process.env.mognoURL, {
+  connect(MONGO_URL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
