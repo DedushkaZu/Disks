@@ -45,9 +45,11 @@ app.use(session({
 app.use('/car', carRouter);
 app.use('/user', userRouter);
 
-app.get('*', function (req, res) {
-  res.sendFile(path.join(process.env.PWD, '../client', 'build', 'index.html'));
-});
+const root = require('path').join(__dirname, '../client', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+  res.sendFile('index.html', { root });
+})
 
 app.listen(PORT, () => {
   console.log('server has been started');
